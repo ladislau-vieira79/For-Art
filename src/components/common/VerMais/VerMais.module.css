@@ -1,0 +1,22 @@
+
+.Container{
+    width: 100%;
+    padding: 12px;
+}
+.Btn{
+    width: 100%;
+    background-color: white;
+    color: #155EEF;
+    font-weight: 600;
+    padding: 12px 14px 12px 40px;
+    border: 1.5px solid #e5e7eb;
+    border-radius: 10px;
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;    
+}
+.Btn:hover{
+    background-color: #155EEF;
+    color: white;
+    transform: translateY(-5%);
+    cursor: pointer;
+}

@@ -1,0 +1,268 @@
+
+
+
+
+.Container {
+  display: flex;
+  min-height: 100vh;
+  width: 100%;
+  background-color: white;
+}
+
+/* ---- Lado da imagem ---- */
+.Cadastro_image_side {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+}
+
+.Cadastro_image_side img {
+  width: 100%;
+  height: 100vh;
+  object-fit: cover;
+  display: block;
+}
+
+.Cadastro_image_side::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(4, 7, 18, 0.75) 0%,
+    rgba(4, 7, 18, 0.05) 35%,
+    rgba(4, 7, 18, 0.15) 55%,
+    rgba(4, 7, 18, 0.92) 100%
+  );
+}
+
+.overlayConteudo {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 44px;
+}
+
+.logoWrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.logoIcone {
+  color: #FBBF24;
+  font-size: 1.1rem;
+}
+
+.logoTexto {
+  color: #ffffff;
+  font-size: 1.3rem;
+  font-weight: 800;
+  letter-spacing: -0.3px;
+}
+
+.logoTexto em {
+  font-style: italic;
+  color: #FBBF24;
+}
+
+.overlayBase {
+  max-width: 440px;
+}
+
+.overlayTitulo {
+  color: #ffffff;
+  font-size: 2.1rem;
+  font-weight: 800;
+  line-height: 1.25;
+  margin: 0 0 14px 0;
+  letter-spacing: -0.5px;
+  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+  text-align: left;
+}
+
+.overlaySubtitulo {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ---- Lado do formulário ---- */
+.Cadastro_form_side {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffffff;
+  padding: 40px;
+}
+
+.Cadastro_form_wrapper {
+  width: 100%;
+  max-width: 380px;
+}
+
+.titulo {
+  font-size: 1.9rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 6px;
+  letter-spacing: -0.5px;
+  text-align: left;
+}
+
+.subtituloForm {
+  font-size: 0.9rem;
+  color: #6b7280;
+  margin-bottom: 28px;
+}
+
+.Cadastro_form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.campo {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 14px;
+}
+
+.campo label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #374151;
+}
+
+.inputWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.icon {
+  position: absolute;
+  left: 14px;
+  color: #9ca3af;
+  font-size: 0.9rem;
+  pointer-events: none;
+}
+
+.inputWrapper input {
+  width: 100%;
+  padding: 12px 14px 12px 40px;
+  border: 1.5px solid #e5e7eb;
+  border-radius: 10px;
+  font-size: 0.9rem;
+  color: #111827;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.inputWrapper input::placeholder {
+  color: #b0b4bb;
+}
+
+.inputWrapper input:focus {
+  border-color: #155EEF;
+  box-shadow: 0 0 0 3px rgba(21, 94, 239, 0.12);
+}
+
+.inputWrapper:focus-within .icon {
+  color: #155EEF;
+}
+
+.btnCadastrar {
+  padding: 13px;
+  border: none;
+  border-radius: 10px;
+  background: #155EEF;
+  color: white;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+  box-shadow: 0 4px 18px rgba(21, 94, 239, 0.35);
+  margin-top: 6px;
+}
+
+.btnCadastrar:hover {
+  transform: translateY(-2px);
+  background: #1c50c9;
+  box-shadow: 0 8px 24px rgba(21, 94, 239, 0.45);
+}
+
+.checkboxLabel {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.85rem;
+  color: #374151;
+  cursor: pointer;
+}
+
+.checkboxLabel input {
+  accent-color: #155EEF;
+  cursor: pointer;
+}
+
+.Lembrar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.85rem;
+  margin: 4px 0 20px;
+}
+
+.linkAzul {
+  color: #155EEF;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.85rem;
+}
+
+.linkAzul:hover {
+  text-decoration: underline;
+}
+
+.cadastrar_link {
+  font-size: 0.88rem;
+  text-align: center;
+  margin-top: 20px;
+  color: #6b7280;
+}
+
+.mensagem {
+  padding: 0.7em 1em;
+  border-radius: 10px;
+  margin-bottom: 1em;
+  font-weight: 600;
+  font-size: 0.85rem;
+  text-align: center;
+}
+
+.erro {
+  background-color: #FEE2E2;
+  color: #B91C1C;
+  border: 1px solid #FCA5A5;
+}
+
+.sucesso {
+  background-color: #DCFCE7;
+  color: #15803D;
+  border: 1px solid #86EFAC;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .Cadastro_image_side {
+    display: none;
+  }
+}

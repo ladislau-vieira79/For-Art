@@ -1,0 +1,284 @@
+
+.post {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  margin-bottom: 24px;
+  overflow: hidden;
+}
+
+.cabecalho {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 14px;
+}
+
+.avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #0a0e2a;
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 700;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.autorInfo {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 0;
+}
+
+.autorNome {
+  font-size: 13.5px;
+  font-weight: 700;
+  color: #171717;
+}
+
+.tempo {
+  font-size: 11px;
+  color: #9ca3af;
+}
+
+.opcoes {
+  background: none;
+  border: none;
+  color: #555555;
+  cursor: pointer;
+  padding: 6px;
+}
+
+.imagemWrapper {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  background: #f5f5f5;
+}
+
+.imagemWrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.acoes {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 12px 14px 4px;
+}
+
+.acaoBtn {
+  background: none;
+  border: none;
+  font-size: 20px;
+  color: #171717;
+  cursor: pointer;
+  padding: 2px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: transform 0.15s ease, color 0.15s ease;
+}
+
+.acaoBtn:hover {
+  transform: scale(1.06);
+}
+
+.contagem {
+  font-size: 13px;
+  font-weight: 600;
+  color: inherit;
+}
+
+.curtido {
+  color: #e0245e;
+}
+
+/* ===== BADGE DE PREÇO (substitui o antigo ícone de guardar) ===== */
+.precoWrapper {
+  position: relative;
+  margin-left: auto;
+}
+
+.precoBadge {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  border: 1px solid #155eef;
+  background: #eef3ff;
+  color: #0b3b91;
+  border-radius: 20px;
+  padding: 6px 14px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.15s ease, transform 0.15s ease;
+}
+
+.precoBadge:hover {
+  background: #155eef;
+  color: #ffffff;
+  transform: translateY(-1px);
+}
+
+.precoIcone {
+  font-size: 11px;
+}
+
+/* painel de conversão, flutuante sobre o post */
+.precoPainel {
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  width: 240px;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  box-shadow: 0 12px 28px rgba(2, 11, 36, 0.14);
+  padding: 14px 16px;
+  z-index: 20;
+  animation: aparecer 0.15s ease;
+}
+
+@keyframes aparecer {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.precoPainelTitulo {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  color: #9ca3af;
+  font-weight: 700;
+  margin: 0 0 10px;
+}
+
+.precoLista {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.precoLinha {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 7px 0;
+  border-bottom: 1px solid #f3f4f6;
+}
+
+.precoLinha:last-child {
+  border-bottom: none;
+}
+
+.precoMoedaNome {
+  font-size: 12.5px;
+  color: #171717;
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+}
+
+.precoMoedaCodigo {
+  font-size: 10px;
+  color: #9ca3af;
+  font-weight: 600;
+}
+
+.precoValor {
+  font-size: 13px;
+  font-weight: 700;
+  color: #0b3b91;
+}
+
+.precoAviso {
+  font-size: 10px;
+  color: #9ca3af;
+  margin: 10px 0 0;
+  line-height: 1.4;
+}
+
+/* botão de pedido de compra, dentro do painel de preço */
+.precoSolicitarBtn {
+  width: 100%;
+  margin-top: 12px;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 0;
+  font-size: 13px;
+  font-weight: 700;
+  color: #ffffff;
+  background: linear-gradient(90deg, #155eef, #0b3b91);
+  cursor: pointer;
+  transition: opacity 0.15s ease, transform 0.15s ease;
+}
+
+.precoSolicitarBtn:hover:not(:disabled) {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+.precoSolicitarBtn:disabled {
+  background: #16a34a;
+  cursor: default;
+}
+
+.conteudo {
+  padding: 10px 14px 16px;
+}
+
+.campo {
+  font-size: 13.5px;
+  color: #171717;
+  line-height: 1.55;
+  margin: 0 0 6px;
+}
+
+.campo:last-child {
+  margin-bottom: 0;
+}
+
+.campoLabel {
+  font-weight: 700;
+  color: #155eef;
+  margin-right: 4px;
+}
+
+@media (max-width: 640px) {
+  .post {
+    border-radius: 0;
+    border-left: none;
+    border-right: none;
+    margin-bottom: 14px;
+  }
+
+  .precoPainel {
+    /* em mobile, ecrã estreito: evita que o painel saia da tela à direita */
+    right: -14px;
+    width: 220px;
+  }
+}

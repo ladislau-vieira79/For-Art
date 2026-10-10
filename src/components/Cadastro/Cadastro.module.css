@@ -1,0 +1,402 @@
+
+
+
+.Container {
+  display: flex;
+  min-height: 100vh;
+  width: 100%;
+  background-color: white;
+}
+
+.Cadastro_image_side {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+}
+
+.Cadastro_image_side img {
+  width: 100%;
+  height: 100vh;
+  object-fit: cover;
+  display: block;
+}
+
+.Cadastro_image_side::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(4, 7, 18, 0.75) 0%,
+    rgba(4, 7, 18, 0.05) 35%,
+    rgba(4, 7, 18, 0.15) 55%,
+    rgba(4, 7, 18, 0.92) 100%
+  );
+}
+
+.Cadastro_form_side {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffffff;
+  padding: 40px;
+}
+
+.Cadastro_form {
+  width: 100%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.titulo {
+  font-size: 1.9rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 6px;
+  letter-spacing: -0.5px;
+}
+
+.subtitulo {
+  font-size: 0.9rem;
+  color: #6b7280;
+  margin-bottom: 26px;
+}
+
+.campo {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 16px;
+}
+
+.campo label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #374151;
+}
+
+/* ===== TIPO DE CONTA (Artista / Galeria / Colecionador) ===== */
+.tipoContaLabel {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #374151;
+}
+
+.tipoContaOpcoes {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-top: 2px;
+}
+
+.tipoContaCard {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 5px;
+  padding: 14px 8px;
+  border: 1.5px solid #e5e7eb;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: border-color 0.2s ease, background-color 0.2s ease,
+    transform 0.15s ease, box-shadow 0.2s ease;
+}
+
+.tipoContaCard:hover {
+  border-color: #a9c2fb;
+  transform: translateY(-2px);
+}
+
+/* o radio real fica invisível — o <label> inteiro é que funciona como botão */
+.radioOculto {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.tipoContaIcone {
+  font-size: 1.3rem;
+  color: #9ca3af;
+  transition: color 0.2s ease;
+}
+
+.tipoContaNome {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #374151;
+  transition: color 0.2s ease;
+}
+
+.tipoContaDescricao {
+  font-size: 0.66rem;
+  color: #9ca3af;
+  line-height: 1.3;
+}
+
+.tipoContaCard.selecionado,
+.selecionado {
+  border-color: #155eef;
+  background: rgba(21, 94, 239, 0.06);
+  box-shadow: 0 0 0 3px rgba(21, 94, 239, 0.12);
+}
+
+.selecionado .tipoContaIcone,
+.selecionado .tipoContaNome {
+  color: #155eef;
+}
+
+.radioOculto:focus-visible ~ .tipoContaIcone {
+  outline: 2px solid #155eef;
+  outline-offset: 2px;
+  border-radius: 50%;
+}
+
+.inputWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.icon {
+  position: absolute;
+  left: 14px;
+  color: #9ca3af;
+  font-size: 0.9rem;
+  pointer-events: none;
+}
+
+.inputWrapper input {
+  width: 100%;
+  padding: 12px 14px 12px 40px;
+  border: 1.5px solid #e5e7eb;
+  border-radius: 10px;
+  font-size: 0.9rem;
+  color: #111827;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.inputWrapper input::placeholder {
+  color: #b0b4bb;
+}
+
+.inputWrapper input:focus {
+  border-color: #155eef;
+  box-shadow: 0 0 0 3px rgba(21, 94, 239, 0.12);
+}
+
+.inputWrapper:focus-within .icon {
+  color: #155eef;
+}
+
+.checkboxLabel {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 0.82rem;
+  color: #6b7280;
+  line-height: 1.4;
+  margin: 10px 0 22px 0;
+  cursor: pointer;
+}
+
+.checkboxLabel input {
+  margin-top: 3px;
+  accent-color: #155eef;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.btnCadastrar {
+  padding: 13px;
+  border: none;
+  border-radius: 10px;
+  background: #155eef;
+  color: white;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+  box-shadow: 0 4px 18px rgba(21, 94, 239, 0.35);
+}
+
+.btnCadastrar:hover {
+  transform: translateY(-2px);
+  background: #1c50c9;
+  box-shadow: 0 8px 24px rgba(21, 94, 239, 0.45);
+}
+
+.jaTemConta {
+  text-align: center;
+  font-size: 0.85rem;
+  color: #6b7280;
+  margin-top: 18px;
+}
+
+.jaTemConta a {
+  color: #155eef;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.jaTemConta a:hover {
+  text-decoration: underline;
+}
+
+.mensagemErro {
+  color: #dc2626;
+  font-size: 0.78rem;
+  margin: 2px 0 0 4px;
+}
+
+.inputErro {
+  border-color: #dc2626 !important;
+}
+
+.inputErro .icon {
+  color: #dc2626;
+}
+
+.overlayConteudo {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 44px;
+}
+
+/* ---- Logo, no topo ---- */
+.logoWrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.logoIcone {
+  color: #fbbf24;
+  font-size: 1.1rem;
+}
+
+.logoTexto {
+  color: #ffffff;
+  font-size: 1.3rem;
+  font-weight: 800;
+  letter-spacing: -0.3px;
+}
+
+.logoTexto em {
+  font-style: italic;
+  color: #fbbf24;
+}
+
+/* ---- Bloco principal, na base ---- */
+.overlayBase {
+  max-width: 460px;
+}
+
+.overlayTitulo {
+  color: #ffffff;
+  font-size: 2.1rem;
+  font-weight: 800;
+  line-height: 1.25;
+  margin: 0 0 14px 0;
+  letter-spacing: -0.5px;
+  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+}
+
+.overlaySubtitulo {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin: 0 0 32px 0;
+}
+
+/* ---- Estatísticas ---- */
+.estatisticas {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.estatItem {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.estatNumero {
+  color: #ffffff;
+  font-size: 1.4rem;
+  font-weight: 800;
+  letter-spacing: -0.3px;
+}
+
+.estatLabel {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.72rem;
+  font-weight: 500;
+}
+
+.estatDivisor {
+  width: 1px;
+  height: 32px;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Responsivo: esconde a imagem em ecrãs pequenos, forma ocupa tudo */
+@media (max-width: 1024px) {
+  .estatisticas {
+    gap: 14px;
+  }
+  .estatNumero {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .Container {
+    flex-direction: column;
+  }
+
+  .Cadastro_image_side {
+    display: none;
+  }
+
+  .Cadastro_form_side {
+    padding: 24px;
+  }
+}
+
+@media (max-width: 420px) {
+  .tipoContaOpcoes {
+    grid-template-columns: 1fr;
+  }
+
+  .tipoContaCard {
+    flex-direction: row;
+    justify-content: flex-start;
+    text-align: left;
+    padding: 10px 12px;
+  }
+
+  .tipoContaDescricao {
+    display: none;
+  }
+}
+
+

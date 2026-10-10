@@ -1,0 +1,56 @@
+
+/* Por padrão (desktop) esta barra não existe */
+.Container {
+  display: none;
+}
+
+@media (max-width: 1024px) {
+  .Container {
+    display: flex;
+    align-items: center; /* centra o ícone verticalmente na linha */
+    min-height: 72px;
+    padding: 0 1.2em;
+    background: #ffffff;
+    border-bottom: 1px solid #e5e7eb;
+    position: sticky; /* também serve de "âncora" para centrar o logo abaixo */
+    top: 0;
+    z-index: 40;
+  }
+
+  .button_navbar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: white;
+    color: #020B24;
+    font-size: 24px;
+    flex-shrink: 0;
+    transition: background 0.15s ease, color 0.15s ease;
+  }
+
+  .button_navbar:hover {
+    background: #155eef;
+    color: #ffffff;
+  }
+
+  /* Logo centrado de forma absoluta (independente da largura do ícone),
+     sempre exatamente no centro vertical E horizontal da barra — assim
+     fica sempre alinhado com o ícone, na mesma linha. */
+  .logoLink {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+  }
+
+  .imag {
+    max-width: 120px;
+    height: auto;
+    display: block;
+  }
+}

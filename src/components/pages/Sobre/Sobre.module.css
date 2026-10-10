@@ -1,0 +1,297 @@
+
+
+  /* ===== HERO ===== */
+.hero{
+  width: 100%;
+  background: #0a0e2a;
+  text-align: center;
+  padding: 96px 24px 64px;
+}
+
+.eyebrow{
+  font-size: 12px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #9ca3af;
+  font-weight: 500;
+  margin-bottom: 16px;
+}
+
+.hero h1{
+  font-size: 42px;
+  color: #ffffff;
+  font-weight: 600;
+  line-height: 1.25;
+  margin-bottom: 20px;
+}
+
+.hero p{
+  font-size: 16px;
+  color: #d7dae6;
+  max-width: 480px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* Destaque itálico reutilizado em vários títulos da página */
+.display{
+  font-style: italic;
+  font-family: Georgia, 'Times New Roman', serif;
+}
+
+/* Sobre fundo escuro (hero), o destaque usa o amarelo — é a cor
+   que a paleta já reserva para "destaque", e tem bom contraste no navy */
+.hero .display{
+  color: #FFB800;
+}
+
+/* ===== STATS ===== */
+.stats{
+  background: white;
+  padding: 48px 64px;
+}
+
+.stats_grid{
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  text-align: center;
+}
+
+.stats_grid div{
+  flex: 1;
+}
+
+.stats_grid .num{
+  color: #155EEF;
+  font-size: 32px;
+  font-weight: 600;
+}
+
+.stats_grid .lbl{
+  font-size: 12.5px;
+  color: #555555;
+  margin-top: 6px;
+}
+
+/* ===== SECÇÃO GENÉRICA ===== */
+.section{
+  padding: 88px 64px;
+  max-width: 1080px;
+  margin: 0 auto;
+}
+
+.section_head{
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.section_head h2{
+  font-size: 30px;
+  color: #171717;
+  font-weight: 600;
+}
+
+/* Sobre fundo claro, o destaque usa o azul escuro — bom contraste
+   em branco, mantendo a identidade da marca */
+.section_head .display{
+  color: #0B3B91;
+}
+
+/* ===== O QUE OFERECEMOS ===== */
+.offer_grid{
+  display: flex;
+  margin: 0 -18px;
+}
+
+.offer{
+  flex: 1;
+  margin: 0 18px;
+  text-align: center;
+  padding: 8px;
+}
+
+.offer .icon{
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 18px;
+  font-size: 20px;
+  color: #155EEF;
+  box-shadow: 0 2px 8px rgba(10, 14, 42, 0.08);
+}
+
+.offer h3{
+  font-size: 17px;
+  color: #0B3B91;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.offer p{
+  font-size: 14px;
+  color: #555555;
+  line-height: 1.6;
+}
+
+/* ===== EQUIPA ===== */
+.team_grid{
+  display: flex;
+  justify-content: center;
+  margin: 0 -24px;
+  flex-wrap: wrap;
+}
+
+.member{
+  text-align: center;
+  margin: 0 24px 24px;
+  width: 140px;
+}
+
+.member .avatar{
+  width: 84px;
+  height: 84px;
+  border-radius: 50%;
+  margin: 0 auto 12px;
+  background: #0a0e2a;
+}
+
+.member h4{
+  font-size: 14.5px;
+  color: #0B3B91;
+  font-weight: 600;
+}
+
+.member span{
+  font-size: 12.5px;
+  color: #555555;
+}
+
+/* ===== CTA BAND ===== */
+.cta_band{
+  margin: 0 64px 88px;
+  border-radius: 24px;
+  padding: 72px 48px;
+  text-align: center;
+  background: #0a0e2a;
+}
+
+.cta_band h2{
+  font-size: 30px;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 14px;
+}
+
+.cta_band p{
+  color: #C9C3B8;
+  font-size: 15px;
+  margin-bottom: 28px;
+}
+
+.btn_gradient{
+  display: inline-block;
+  padding: 14px 32px;
+  border-radius: 28px;
+  color: #fff;
+  font-size: 15px;
+  background: #155EEF;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+  box-shadow: 0 4px 18px rgba(21, 94, 239, 0.35);
+  border: none;
+}
+
+.btn_gradient:hover{
+  background: #0B3B91;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 22px rgba(21, 94, 239, 0.45);
+}
+
+/* ==========================
+   TABLET (≤ 1024px)
+   ========================== */
+@media (max-width: 1024px){
+  .hero{
+    padding: 80px 32px 56px;
+  }
+  .hero h1{
+    font-size: 36px;
+  }
+  .stats{
+    padding: 40px 32px;
+  }
+  .section{
+    padding: 72px 32px;
+  }
+  .cta_band{
+    margin: 0 32px 72px;
+    padding: 64px 32px;
+  }
+}
+
+/* ==========================
+   MOBILE (≤ 860px)
+   ========================== */
+@media (max-width: 860px){
+  .hero{
+    padding: 56px 20px 44px;
+  }
+  .hero h1{
+    font-size: 28px;
+  }
+  .hero p{
+    font-size: 14.5px;
+  }
+
+  .stats{
+    padding: 32px 20px;
+  }
+  .stats_grid{
+    flex-wrap: wrap;
+    row-gap: 20px;
+  }
+  .stats_grid div{
+    flex: 0 0 50%;
+  }
+  .stats_grid .num{
+    font-size: 26px;
+  }
+
+  .section{
+    padding: 48px 20px;
+  }
+  .section_head h2{
+    font-size: 24px;
+  }
+
+  .offer_grid{
+    flex-direction: column;
+    margin: 0;
+    gap: 32px;
+  }
+  .offer{
+    margin: 0;
+  }
+
+  .team_grid{
+    margin: 0;
+    gap: 24px 0;
+  }
+  .member{
+    margin: 0;
+  }
+
+  .cta_band{
+    margin: 0 20px 56px;
+    padding: 48px 24px;
+  }
+  .cta_band h2{
+    font-size: 24px;
+  }
+}

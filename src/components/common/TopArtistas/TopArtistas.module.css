@@ -1,0 +1,31 @@
+
+
+.Container{
+    width: 100%;
+    padding: 12px;
+    background-color: white;
+}
+.imagem{
+    width: 84px;
+    height: 84px;
+    border-radius: 50%;
+    margin: 0 auto 14px;
+    background: #0a0e2a;
+    overflow: hidden;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.imagem img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.Nome_Artista{
+    color: #020B24;
+}
+.pontos{
+    color: #555555;
+}

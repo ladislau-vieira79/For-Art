@@ -1,0 +1,78 @@
+
+.wrapper {
+  background: #f7f7f5;
+  padding: 20px 5%;
+  margin-bottom: 3em;
+}
+
+.container {
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+  border-radius: 24px;
+  padding: 60px 40px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Brilho decorativo subtil no fundo */
+.container::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -10%;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(21, 94, 239, 0.25) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.titulo {
+  color: #ffffff;
+  font-size: 2rem;
+  font-weight: 800;
+  margin: 0 0 12px 0;
+  letter-spacing: -0.5px;
+  position: relative;
+}
+
+.subtitulo {
+  color: #94a3b8;
+  font-size: 1rem;
+  margin: 0 0 28px 0;
+  position: relative;
+}
+
+.btnCadastro {
+  padding: 14px 32px;
+  border: none;
+  border-radius: 12px;
+  background: #155EEF;
+  cursor: pointer;
+  color: white;
+  font-size: 0.95rem;
+  font-weight: 600;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+  box-shadow: 0 4px 20px rgba(21, 94, 239, 0.4);
+  position: relative;
+}
+
+.btnCadastro:hover {
+  transform: translateY(-3px);
+  background: #1c50c9;
+  box-shadow: 0 8px 28px rgba(21, 94, 239, 0.55);
+}
+
+.btnCadastro:active {
+  transform: translateY(-1px);
+}
+
+/* Responsivo */
+@media (max-width: 600px) {
+  .container {
+    padding: 40px 24px;
+  }
+
+  .titulo {
+    font-size: 1.5rem;
+  }
+}

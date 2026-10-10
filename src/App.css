@@ -1,38 +1,73 @@
-.App {
-  text-align: center;
+
+*{
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+.auth-page {
   min-height: 100vh;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+
+  background: linear-gradient(
+    135deg,
+    #020B24,
+    #155EEF
+  );
 }
 
-.App-link {
-  color: #61dafb;
+
+:root {
+    /* =========================
+       CORES PRINCIPAIS
+       ========================= */
+
+    --background: #F5F5F5;      /* Whitesmoke - fundo do site */
+    --white: #FFFFFF;            /* Navbar e cards */
+
+    --primary: #155EEF;          /* Azul principal */
+    --primary-dark: #0B3B91;     /* Azul escuro */
+
+    /* =========================
+       CORES DE DESTAQUE
+       ========================= */
+
+    --yellow: #FFB800;           /* Amarelo */
+    --orange: #FF6B00;           /* Laranja */
+
+    /* =========================
+       TEXTOS
+       ========================= */
+
+    --text-primary: #171717;     /* Títulos */
+    --text-secondary: #555555;   /* Textos secundários */
+
+    /* =========================
+       HERO / CARROSSEL
+       ========================= */
+
+    --hero: #020B24;             /* Azul quase preto */
+    --hero-text: #FFFFFF;        /* Texto do carrossel */
+
+    /* =========================
+       CARDS
+       ========================= */
+
+    --card-background: #FFFFFF;
+    --card-title: #171717;
+    --card-text: #555555;
+
+    /* =========================
+       FOOTER
+       ========================= */
+
+    --footer: #020B24;
+    --footer-title: #155EEF;
+    --footer-text: #E5E7EB;
+    --footer-hover: #FFB800;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
+
+

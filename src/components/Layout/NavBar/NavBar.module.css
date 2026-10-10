@@ -1,0 +1,193 @@
+
+.Container {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  grid-template-areas: ". logo right";
+  align-items: center;
+  width: 100%;
+  background-color: #ffffff;
+  padding: 0 5em;
+  min-height: 88px;
+  box-shadow: 0 1px 3px rgba(2, 11, 36, 0.06);
+  position: relative;
+  z-index: 50;
+}
+
+.logoLink {
+  grid-area: logo;
+  justify-self: start;
+  display: flex;
+  align-items: center;
+}
+
+.imag {
+  max-width: 150px;
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.rightGroup {
+  grid-area: right;
+  justify-self: end;
+  display: flex;
+  align-items: center;
+  gap: 2em;
+}
+
+/* Hamburger só existe (e só ocupa a grelha) em mobile — ver media query */
+.hamburger {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 22px;
+  color: #171717;
+  cursor: pointer;
+  padding: 8px;
+}
+
+.Navbar_links {
+  display: flex;
+  gap: 2em;
+  list-style: none;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+.links {
+  text-decoration: none;
+  color: #155eef;
+  font-weight: 600;
+  font-size: 15px;
+  padding-bottom: 4px;
+  border-bottom: 2px solid transparent;
+  transition: border-color 0.15s ease, color 0.15s ease;
+}
+
+.links:hover {
+  border-bottom-color: #ffb800;
+}
+
+.active {
+  color: #0b3b91;
+  border-bottom-color: #155eef;
+}
+
+.button_navbar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 22px;
+  text-decoration: none;
+  color: #ffffff;
+  background-color: #155eef;
+  border: none;
+  border-radius: 40px;
+  font-weight: 600;
+  font-size: 14px;
+  gap: 8px;
+  cursor: pointer;
+  white-space: nowrap;
+  box-shadow: 0 4px 18px rgba(21, 94, 239, 0.3);
+  transition: background-color 0.15s ease, transform 0.15s ease;
+}
+
+.button_navbar:hover {
+  background-color: #0b3b91;
+  transform: translateY(-2px);
+}
+
+/* ==========================
+   TABLET (≤ 1024px)
+   ========================== */
+@media (max-width: 1024px) {
+  .Container {
+    padding: 0 2.5em;
+  }
+
+  .Navbar_links,
+  .rightGroup {
+    gap: 1.4em;
+  }
+
+  .links {
+    font-size: 14px;
+  }
+}
+
+/* ==========================
+   MOBILE (≤ 860px)
+   hamburger | logo centrado | user — como no wireframe
+   ========================== */
+@media (max-width: 860px) {
+  .Container {
+    grid-template-areas: "burger logo right";
+    padding: 0 1.2em;
+    min-height: 72px;
+  }
+
+  .imag {
+    max-width: 120px;
+  }
+
+  .logoLink {
+    justify-self: center;
+  }
+
+  .hamburger {
+    display: block;
+    grid-area: burger;
+    justify-self: start;
+    color: #155eef;
+  }
+
+  .loginLabel {
+    display: none; /* mostra só o ícone, poupa espaço */
+  }
+
+  .button_navbar {
+    padding: 10px 14px;
+  }
+
+  /* os links deixam de estar na linha do nav e passam a
+     dropdown flutuante por baixo, sem empurrar o resto do layout */
+  .Navbar_links {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+    max-height: 0;
+    overflow: hidden;
+    background: #ffffff;
+    box-shadow: 0 8px 16px rgba(2, 11, 36, 0.08);
+    transition: max-height 0.25s ease;
+  }
+
+  .Navbar_links.open {
+    max-height: 320px;
+  }
+
+  .Navbar_links li {
+    width: 100%;
+  }
+
+  .links {
+    display: block;
+    width: 100%;
+    padding: 14px 1.2em;
+    border-bottom: 1px solid #f0f0f0;
+  }
+
+  .links:hover {
+    border-bottom: 1px solid #ffb800;
+  }
+
+  .active {
+    border-bottom: 1px solid #155eef;
+    background: #f5f8ff;
+  }
+}

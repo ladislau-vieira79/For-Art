@@ -1,0 +1,186 @@
+
+.secao {
+  background: #ffffff;
+  padding: 88px 64px;
+}
+
+.cabecalho {
+  text-align: center;
+  max-width: 640px;
+  margin: 0 auto 48px;
+}
+
+.etiqueta {
+  display: block;
+  font-size: 12px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #155eef;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.cabecalho h2 {
+  font-size: 30px;
+  font-weight: 700;
+  color: #171717;
+  margin: 0;
+}
+
+.conteudo {
+  max-width: 1180px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  gap: 48px;
+  align-items: center;
+}
+
+/* ===== ABAS (esquerda) ===== */
+.abas {
+  display: flex;
+  flex-direction: column;
+}
+
+.aba {
+  text-align: left;
+  background: none;
+  border: none;
+  border-left: 3px solid #e5e7eb;
+  padding: 16px 0 16px 22px;
+  cursor: pointer;
+  transition: border-color 0.2s ease;
+}
+
+.abaNome {
+  display: block;
+  font-size: 17px;
+  font-weight: 700;
+  color: #9ca3af;
+  transition: color 0.2s ease;
+}
+
+.abaDescricao {
+  font-size: 13.5px;
+  color: #555555;
+  line-height: 1.6;
+  margin: 6px 0 0;
+
+  /* só mostra a descrição da aba ativa, com uma transição suave de altura */
+  display: grid;
+  grid-template-rows: 0fr;
+  overflow: hidden;
+  transition: grid-template-rows 0.25s ease, opacity 0.2s ease;
+  opacity: 0;
+}
+
+.abaAtiva {
+  border-left-color: #155eef;
+}
+
+.abaAtiva .abaNome {
+  color: #171717;
+}
+
+.abaAtiva .abaDescricao {
+  grid-template-rows: 1fr;
+  opacity: 1;
+}
+
+/* truque para o grid-template-rows funcionar com padding/overflow */
+.abaDescricao::before {
+  content: "";
+  display: block;
+  height: 0;
+}
+
+/* ===== VISUAL (direita) ===== */
+.visual {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.foto {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  border-radius: 20px;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: flex-end;
+  padding: 20px;
+  transition: background 0.3s ease;
+}
+
+.legenda {
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 15px;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
+}
+
+.btnExplorar {
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  border-radius: 40px;
+  background: #155eef;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 14px;
+  text-decoration: none;
+  box-shadow: 0 4px 18px rgba(21, 94, 239, 0.3);
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.btnExplorar:hover {
+  background: #0b3b91;
+  transform: translateY(-2px);
+}
+
+/* ==========================
+   TABLET (≤ 1024px)
+   Mantém as abas na vertical, com a descrição sempre visível —
+   só passa a ocupar a largura toda, foto por baixo.
+   ========================== */
+@media (max-width: 1024px) {
+  .secao {
+    padding: 64px 32px;
+  }
+  .conteudo {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .foto {
+    aspect-ratio: 16 / 8;
+  }
+}
+
+/* ==========================
+   MOBILE (≤ 640px)
+   ========================== */
+@media (max-width: 640px) {
+  .secao {
+    padding: 48px 20px;
+  }
+  .cabecalho {
+    margin-bottom: 28px;
+  }
+  .cabecalho h2 {
+    font-size: 22px;
+  }
+  .abaNome {
+    font-size: 14px;
+  }
+  .foto {
+    aspect-ratio: 4 / 5;
+    border-radius: 16px;
+  }
+  .btnExplorar {
+    width: 100%;
+    justify-content: center;
+  }
+}

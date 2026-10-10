@@ -1,0 +1,163 @@
+
+
+.footer {
+  background: #0a0e2a;
+  color: #ffffff;
+  padding: 50px 60px 0;
+  font-family: 'Inter', sans-serif;
+}
+
+.conteudo {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 30px;
+  padding-bottom: 40px;
+}
+
+.coluna {
+  flex: 1;
+  min-width: 180px;
+}
+
+/* Coluna do logo, um pouco maior que as outras */
+.coluna:first-child {
+  flex: 1.5;
+  min-width: 220px;
+}
+
+.imag{
+    max-width: 170px;
+    
+}
+
+.descricao {
+  font-size: 0.85rem;
+  color: #9ca3af;
+  line-height: 1.6;
+  margin-bottom: 18px;
+}
+
+.redesSociais {
+  display: flex;
+  gap: 12px;
+}
+
+.redesSociais a {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: background 0.2s;
+}
+
+.redesSociais a:hover {
+  background: #3B82F6;
+}
+
+.tituloColuna {
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  margin-bottom: 18px;
+  color: #155EEF;
+}
+
+.lista {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.lista a {
+  color: white;
+  text-decoration: none;
+  font-size: 0.88rem;
+  transition: color 0.2s;
+}
+
+.lista a:hover {
+  color: #FFB800;
+}
+
+.listaContacto {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.listaContacto li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.85rem;
+  color: #9ca3af;
+}
+
+.listaContacto svg {
+  color: #3B82F6;
+  flex-shrink: 0;
+}
+
+.formNewsletter {
+  display: flex;
+  gap: 8px;
+}
+
+.button_navbar{
+    display: flex;
+    width: 100px;
+    padding: 10px 20px;
+    text-decoration: none;
+    color: white;
+    background-color: #155EEF;
+    border: none;
+    border-radius: 40px;
+    font-weight: 600;
+    gap: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    box-shadow: 0 4px 18px rgba(21, 94, 239, 0.4); 
+}
+.button_navbar:hover{
+     transform: translateY(-2px);
+}
+
+.formNewsletter button:hover {
+  background: #2563EB;
+}
+
+.rodape {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 18px 0;
+  text-align: center;
+}
+
+.rodape p {
+  font-size: 0.8rem;
+  color: #6b7280;
+  margin: 0;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .conteudo {
+    flex-direction: column;
+  }
+
+  .footer {
+    padding: 40px 24px 0;
+  }
+}
