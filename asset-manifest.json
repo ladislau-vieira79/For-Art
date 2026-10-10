@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/For-Art/static/css/main.b0b3c15f.css",
+    "main.js": "/For-Art/static/js/main.e7d14bb2.js",
+    "static/js/453.21dc46a3.chunk.js": "/For-Art/static/js/453.21dc46a3.chunk.js",
+    "static/media/Foto3.png": "/For-Art/static/media/Foto3.15250bbe382eaef4a6af.png",
+    "static/media/Foto2.png": "/For-Art/static/media/Foto2.82bc850107111869a5a6.png",
+    "static/media/Foto1.png": "/For-Art/static/media/Foto1.40533321b3dcdc312439.png",
+    "static/media/Login.png": "/For-Art/static/media/Login.f963c88c80e57f2600e7.png",
+    "static/media/Cadastro.png": "/For-Art/static/media/Cadastro.01680d0cb47803c27702.png",
+    "static/media/Logo2.png": "/For-Art/static/media/Logo2.6adeea1e1d9f8e8869d2.png",
+    "static/media/Logo02.png": "/For-Art/static/media/Logo02.fa0c66579d05a0defd40.png",
+    "static/media/Logo.png": "/For-Art/static/media/Logo.fb013a7e05a52510bc0d.png",
+    "static/media/carcere mental.jpg": "/For-Art/static/media/carcere mental.76217ca339db358001b5.jpg",
+    "index.html": "/For-Art/index.html",
+    "main.b0b3c15f.css.map": "/For-Art/static/css/main.b0b3c15f.css.map",
+    "main.e7d14bb2.js.map": "/For-Art/static/js/main.e7d14bb2.js.map",
+    "453.21dc46a3.chunk.js.map": "/For-Art/static/js/453.21dc46a3.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.b0b3c15f.css",
+    "static/js/main.e7d14bb2.js"
+  ]
+}
