@@ -1,8 +1,8 @@
 
 import { useMemo, useState } from "react";
 import { FaSearch } from "react-icons/fa";
-import NavBar from "../../Layout/NavBar/NavBar";
-import Footer from "../../Layout/Footer";
+import NavBar from "../../components/Layout/NavBar/NavBar";
+import Footer from "../../components/Layout/Footer";
 import CardGaleria from "../../pages/Galerias/CardGalerias/CardGalerias";
 import { AREAS_INTERESSE, PAISES, mockGalerias } from "./Mockgalerias";
 import style from "./Galerias.module.css";

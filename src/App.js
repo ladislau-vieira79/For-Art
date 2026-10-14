@@ -2,21 +2,21 @@
 import './App.css';
 import { BrowserRouter, Route, Routes, Link } from 'react-router-dom';
 import Carregamento from './components/Carregamento/Carregamento';
-import Explorar from './components/pages/Explorar/Explorar';
-import Galerias from './components/pages/Galerias/Galerias';
-import Sobre from './components/pages/Sobre/Sobre';
-import Home from './components/pages/home/Home'
+import Explorar from './pages/Explorar/Explorar';
+import Galerias from './pages/Galerias/Galerias';
+import Sobre from './pages/Sobre/Sobre';
+import Home from './pages/home/Home'
 import Cadastro from './components/Cadastro/Cadastro'
 import Login from './components/login/Login'
-import Artistas from './components/pages/Artistas/Artistas'
-import Feed from './components/pages/Feed/Feed'
+import Artistas from './pages/Artistas/Artistas'
+import Feed from './pages/Feed/Feed'
 
 
 function App() {
   return (
     <div className="App">
      
-      <BrowserRouter>
+      <BrowserRouter  basename={process.env.PUBLIC_URL}>
        <Carregamento/> 
         <Routes>
           <Route path="/" element={<Home />} />

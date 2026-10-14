@@ -1,8 +1,8 @@
 import { useMemo, useState } from "react";
 import { FaSearch, FaFire } from "react-icons/fa";
-import NavBar from "../../Layout/NavBar/NavBar";
-import Footer from "../../Layout/Footer";
-import CardArtista from "../../common/CardArtistas/CardArtista";
+import NavBar from "../../components/Layout/NavBar/NavBar";
+import Footer from "../../components/Layout/Footer";
+import CardArtista from "../../components/common/CardArtistas/CardArtista";
 import { ESPECIALIDADES, PAISES, mockArtistas } from "./MockArtistas";
 import style from "./Artistas.module.css";
  

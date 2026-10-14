@@ -1,9 +1,9 @@
 
 import { useMemo, useState } from "react";
 import { FaSearch } from "react-icons/fa";
-import NavBar from "../../Layout/NavBar/NavBar";
-import Footer from "../../Layout/Footer";
-import Card from "../../common/Card/Card";
+import NavBar from "../../components/Layout/NavBar/NavBar";
+import Footer from "../../components/Layout/Footer";
+import Card from "../../components/common/Card/Card";
 import { CATEGORIAS, TECNICAS, PAISES, Mockobras } from "./Mockobras";
 import style from "./Explorar.module.css";
 

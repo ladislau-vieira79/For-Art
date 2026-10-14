@@ -1,7 +1,7 @@
 
-import NavBar from '../../Layout/NavBar/NavBar'
+import NavBar from '../../components/Layout/NavBar/NavBar'
 import { Link } from 'react-router-dom'
-import Footer from '../../Layout/Footer'
+import Footer from '../../components/Layout/Footer'
 import { FaEye, FaImages, FaHandshake } from 'react-icons/fa'
 import style from './Sobre.module.css'
 

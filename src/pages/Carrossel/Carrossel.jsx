@@ -2,9 +2,9 @@
 
 import { useState, useEffect } from 'react';
 import './Carrossel.css';
-import foto1 from '../../img/Foto1.png';
-import foto2 from '../../img/Foto2.png';
-import foto3 from '../../img/Foto3.png';
+import foto1 from '../../components/img/Foto1.png';
+import foto2 from '../../components/img/Foto2.png';
+import foto3 from '../../components/img/Foto3.png';
 
 const INTERVALO = 4000; // ms entre slides
 

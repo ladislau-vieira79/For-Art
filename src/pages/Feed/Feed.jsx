@@ -10,9 +10,9 @@ import {
   FaEnvelope,
   FaFire,
 } from "react-icons/fa";
-import NavMobile from "../../Layout/NavMobile/NavMobile";
-import PostCard from "../../pages/Feed/PostCard/PostCard";
-import Logo from "../../img/Logo.png";
+import NavMobile from "../../components/Layout/NavMobile/NavMobile";
+import PostCard from "./PostCard/PostCard";
+import Logo from "../../components/img/Logo.png";
 import { mockPosts, mockTopSemana, mockSugestoes } from "./Mockfeed";
 import style from "./Feed.module.css";
 
