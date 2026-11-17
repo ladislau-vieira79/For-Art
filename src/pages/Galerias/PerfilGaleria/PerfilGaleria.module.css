@@ -1,0 +1,602 @@
+.pagina {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 32px 32px 80px;
+}
+
+/* ===== CAPA + AVATAR ===== */
+.capa {
+  position: relative;
+  height: 280px;
+  border-radius: 20px;
+  background: #020b24;
+  margin-bottom: 64px; /* espaço para o logo que "sai" da capa */
+}
+
+.capa > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 20px;
+}
+
+.logo {
+  position: absolute;
+  left: 36px;
+  bottom: -52px;
+  width: 116px;
+  height: 116px;
+  border-radius: 22px;
+  border: 5px solid #ffffff;
+  background: #020b24;
+  color: #ffffff;
+  font-size: 1.9rem;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  box-shadow: 0 6px 20px rgba(2, 11, 36, 0.18);
+}
+
+.logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ===== CABEÇALHO ===== */
+.cabecalho {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 0 4px 24px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.cabecalhoInfo {
+  min-width: 0;
+}
+
+.nome {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.7rem;
+  font-weight: 800;
+  color: #020b24;
+  letter-spacing: -0.4px;
+  margin: 0;
+}
+
+.selo {
+  color: #155eef;
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+
+.cabecalhoInfo .metaLinha {
+  margin-top: 10px;
+}
+
+.metaLinha {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 20px;
+  font-size: 0.82rem;
+  color: #555555;
+}
+
+.metaLinha span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.metaLinha svg {
+  color: #155eef;
+  font-size: 0.8rem;
+}
+
+.botoesHero {
+  display: flex;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.btnPrimario,
+.btnSecundario {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 42px;
+  padding: 0 22px;
+  border-radius: 22px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease,
+    color 0.2s ease, border-color 0.2s ease;
+}
+
+.btnPrimario {
+  border: 1.5px solid #155eef;
+  background: #155eef;
+  color: #ffffff;
+  box-shadow: 0 4px 14px rgba(21, 94, 239, 0.3);
+}
+
+.btnPrimario:hover {
+  transform: translateY(-2px);
+  background: #1c50c9;
+}
+
+.btnPrimario.aSeguir {
+  background: #ffffff;
+  color: #155eef;
+  box-shadow: none;
+}
+
+.btnSecundario {
+  border: 1.5px solid #d1d5db;
+  background: #ffffff;
+  color: #171717;
+}
+
+.btnSecundario:hover {
+  border-color: #155eef;
+  color: #155eef;
+}
+
+/* ===== ESTATÍSTICAS ===== */
+.stats {
+  display: flex;
+  margin: 24px 0 8px;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+}
+
+.statItem {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  padding: 18px 8px;
+  border-right: 1px solid #f0f0f0;
+}
+
+.statItem:last-child {
+  border-right: none;
+}
+
+.statNum {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: #020b24;
+  letter-spacing: -0.3px;
+}
+
+.statLbl {
+  font-size: 0.72rem;
+  color: #6b7280;
+  text-align: center;
+}
+
+/* ===== TABS ===== */
+.tabs {
+  display: flex;
+  gap: 32px;
+  margin-top: 24px;
+  border-bottom: 1px solid #e5e7eb;
+  overflow-x: auto;
+}
+
+.tab {
+  background: none;
+  border: none;
+  padding: 0 2px 14px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #9ca3af;
+  cursor: pointer;
+  white-space: nowrap;
+  border-bottom: 3px solid transparent;
+  margin-bottom: -1px;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.tab:hover {
+  color: #171717;
+}
+
+.tabAtiva {
+  color: #155eef;
+  border-bottom-color: #155eef;
+}
+
+/* ===== SECÇÕES ===== */
+.secao {
+  padding-top: 28px;
+}
+
+.secaoTitulo {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #020b24;
+  margin: 0 0 12px;
+}
+
+.vazio {
+  text-align: center;
+  color: #6b7280;
+  font-size: 0.9rem;
+  padding: 48px 0;
+}
+
+/* ----- Obras ----- */
+.gridObras {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.obraCard {
+  display: block;
+  text-decoration: none;
+  background: #ffffff;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(2, 11, 36, 0.06);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.obraCard:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 28px rgba(2, 11, 36, 0.14);
+}
+
+.obraImgWrapper {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  background: #f5f5f5;
+}
+
+.obraImgWrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.obraCard:hover .obraImgWrapper img {
+  transform: scale(1.05);
+}
+
+.obraInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 14px 16px 16px;
+}
+
+.obraTitulo {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #020b24;
+  line-height: 1.3;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.obraPreco {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #0b3b91;
+}
+
+.obraPreco svg {
+  font-size: 0.7rem;
+}
+
+/* ----- Blocos de texto (Sobre / Contacto) ----- */
+.bloco {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  padding: 28px;
+  max-width: 760px;
+}
+
+.texto {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: #374151;
+  margin: 0 0 20px;
+}
+
+/* ----- Exposições ----- */
+.exposicoesLista {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 760px;
+}
+
+.exposicaoItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  padding: 16px 20px;
+}
+
+.exposicaoInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+
+.exposicaoTitulo {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #020b24;
+}
+
+.exposicaoMeta {
+  font-size: 0.78rem;
+  color: #6b7280;
+}
+
+.exposicaoTag {
+  flex-shrink: 0;
+  padding: 5px 12px;
+  border-radius: 14px;
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
+.emCurso {
+  background: #eef3ff;
+  color: #0b3b91;
+}
+
+.encerrada {
+  background: #f3f4f6;
+  color: #6b7280;
+}
+
+/* ==========================
+   TABLET (≤ 1024px)
+   ========================== */
+@media (max-width: 1024px) {
+  .pagina {
+    padding: 24px 24px 64px;
+  }
+
+  .capa {
+    height: 220px;
+  }
+
+  .gridObras {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+  }
+}
+
+/* ==========================
+   MOBILE (≤ 640px)
+   ========================== */
+@media (max-width: 640px) {
+  .pagina {
+    padding: 0 0 56px;
+  }
+
+  .capa {
+    height: 160px;
+    border-radius: 0;
+    margin-bottom: 56px;
+  }
+
+  .capa > img {
+    border-radius: 0;
+  }
+
+  .logo {
+    left: 50%;
+    transform: translateX(-50%);
+    width: 96px;
+    height: 96px;
+    bottom: -48px;
+    font-size: 1.6rem;
+  }
+
+  .cabecalho {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 0 16px 20px;
+  }
+
+  .nome {
+    justify-content: center;
+    font-size: 1.4rem;
+  }
+
+  .metaLinha {
+    justify-content: center;
+  }
+
+  .botoesHero {
+    width: 100%;
+  }
+
+  .btnPrimario,
+  .btnSecundario {
+    flex: 1;
+  }
+
+  .stats {
+    margin: 20px 16px 8px;
+  }
+
+  .statNum {
+    font-size: 1.15rem;
+  }
+
+  .tabs {
+    padding: 0 16px;
+    gap: 24px;
+  }
+
+  .secao {
+    padding: 24px 16px 0;
+  }
+
+  .gridObras {
+    gap: 12px;
+  }
+
+  .obraInfo {
+    padding: 10px 12px 12px;
+  }
+
+  .obraTitulo {
+    font-size: 0.85rem;
+  }
+
+  .bloco {
+    padding: 20px;
+  }
+
+  .exposicaoItem {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+}
+
+/* ===== ESPECÍFICO DA GALERIA ===== */
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tag {
+  padding: 6px 14px;
+  border-radius: 16px;
+  background: #eef3ff;
+  color: #0b3b91;
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+
+.obraArtista {
+  font-size: 0.78rem;
+  color: #6b7280;
+}
+
+.gridArtistas {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.contactoLista {
+  list-style: none;
+  margin: 0 0 22px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  font-size: 0.9rem;
+  color: #374151;
+}
+
+.contactoLista li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.contactoLista svg {
+  color: #155eef;
+  width: 16px;
+  flex-shrink: 0;
+}
+
+.btnContactoGrande {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: 44px;
+  padding: 0 24px;
+  border-radius: 22px;
+  background: #155eef;
+  color: #ffffff;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: 0 4px 14px rgba(21, 94, 239, 0.3);
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.btnContactoGrande:hover {
+  transform: translateY(-2px);
+  background: #1c50c9;
+}
+
+@media (max-width: 1024px) {
+  .gridArtistas {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+  }
+}
+
+@media (max-width: 640px) {
+  .gridArtistas {
+    gap: 12px;
+  }
+
+  .statLbl {
+    font-size: 0.65rem;
+  }
+
+  .statNum {
+    font-size: 1.05rem;
+  }
+
+  .stats {
+    flex-wrap: wrap;
+  }
+
+  .statItem {
+    flex: 0 0 50%;
+    box-sizing: border-box;
+    border-right: none;
+    border-bottom: 1px solid #f0f0f0;
+  }
+}
+
+/* garante que os cards de artista nunca ultrapassam a sua coluna */
+.gridArtistas > * {
+  box-sizing: border-box;
+  min-width: 0;
+  max-width: 100%;
+}

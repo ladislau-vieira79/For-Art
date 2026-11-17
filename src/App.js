@@ -9,6 +9,7 @@ import Home from './pages/home/Home'
 import Cadastro from './components/Cadastro/Cadastro'
 import Login from './components/login/Login'
 import Artistas from './pages/Artistas/Artistas'
+import PerfilGaleria from "./pages/Galerias/PerfilGaleria/PerfilGaleria";
 import PerfilArtistas from "./pages/PerfilArtistas/PerfilArtistas";
 import Feed from './pages/Feed/Feed'
  
@@ -28,6 +29,7 @@ function App() {
           <Route path="/Sobre" element={<Sobre />} />
           <Route path="/Artistas" element={<Artistas />} />
           <Route path="/artista/:id" element={<PerfilArtistas />} />
+          <Route path="/galeria/:id" element={<PerfilGaleria />} />
           <Route path="/Cadastro" element={<Cadastro />} />
           <Route path="/Login" element={<Login />} />
         </Routes>
