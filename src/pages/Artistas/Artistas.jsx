@@ -1,24 +1,25 @@
 import { useMemo, useState } from "react";
+import { Link } from "react-router-dom";
 import { FaSearch, FaFire } from "react-icons/fa";
 import NavBar from "../../components/Layout/NavBar/NavBar";
 import Footer from "../../components/Layout/Footer";
 import CardArtista from "../../components/common/CardArtistas/CardArtista";
-import { ESPECIALIDADES, PAISES, mockArtistas } from "./MockArtistas";
+import { ESPECIALIDADES, PAISES, mockArtistas } from "./mockArtistas";
 import style from "./Artistas.module.css";
- 
+
 const POR_PAGINA = 6;
- 
+
 function getIniciais(nome = "") {
   return nome.trim().split(" ").filter(Boolean).slice(0, 2).map((p) => p[0].toUpperCase()).join("");
 }
- 
+
 function Artistas() {
   const [pesquisa, setPesquisa] = useState("");
   const [especialidade, setEspecialidade] = useState("");
   const [pais, setPais] = useState("");
   const [maisSeguidos, setMaisSeguidos] = useState(false);
   const [visiveis, setVisiveis] = useState(POR_PAGINA);
- 
+
   // Top 4 da semana, sempre com base na lista completa (não é afetado pelos filtros)
   const topSemana = useMemo(
     () =>
@@ -27,15 +28,15 @@ function Artistas() {
         .slice(0, 4),
     []
   );
- 
+
   // TODO: quando ligares à API, troca este useMemo por um fetch com
   // estes filtros como query params.
   const artistasFiltrados = useMemo(() => {
     let lista = [...mockArtistas];
- 
+
     if (especialidade) lista = lista.filter((a) => a.tecnica === especialidade);
     if (pais) lista = lista.filter((a) => a.pais === pais);
- 
+
     if (pesquisa.trim()) {
       const termo = pesquisa.trim().toLowerCase();
       lista = lista.filter(
@@ -44,28 +45,28 @@ function Artistas() {
           a.tecnica.toLowerCase().includes(termo)
       );
     }
- 
+
     if (maisSeguidos) {
       lista.sort((a, b) => b.seguidores - a.seguidores);
     }
- 
+
     return lista;
   }, [pesquisa, especialidade, pais, maisSeguidos]);
- 
+
   const artistasVisiveis = artistasFiltrados.slice(0, visiveis);
   const temMais = visiveis < artistasFiltrados.length;
- 
+
   function comReinicio(setter) {
     return (valor) => {
       setter(valor);
       setVisiveis(POR_PAGINA);
     };
   }
- 
+
   return (
     <div>
       <NavBar />
- 
+
       <main className={style.pagina}>
         <div className={style.cabecalho}>
           <span className={style.etiqueta}>Comunidade For Art</span>
@@ -76,7 +77,7 @@ function Artistas() {
             seu nome.
           </p>
         </div>
- 
+
         <section className={style.topSemana}>
           <div className={style.topTitulo}>
             <FaFire aria-hidden="true" />
@@ -84,7 +85,7 @@ function Artistas() {
           </div>
           <div className={style.topLista}>
             {topSemana.map((a, index) => (
-              <a key={a.id} href={`/artista/${a.id}`} className={style.topItem}>
+              <Link key={a.id} to={`/artista/${a.id}`} className={style.topItem}>
                 <div className={style.topAvatar}>
                   {a.foto ? (
                     <img src={a.foto} alt={a.nome} />
@@ -97,11 +98,11 @@ function Artistas() {
                 <span className={style.topViews}>
                   {a.visualizacoesSemana.toLocaleString("pt-PT")} visualizações
                 </span>
-              </a>
+              </Link>
             ))}
           </div>
         </section>
- 
+
         <div className={style.busca}>
           <FaSearch aria-hidden="true" />
           <input
@@ -111,7 +112,7 @@ function Artistas() {
             onChange={(e) => comReinicio(setPesquisa)(e.target.value)}
           />
         </div>
- 
+
         <div className={style.filtros}>
           <select
             className={style.filtro}
@@ -123,7 +124,7 @@ function Artistas() {
               <option key={e} value={e}>{e}</option>
             ))}
           </select>
- 
+
           <select
             className={style.filtro}
             value={pais}
@@ -134,7 +135,7 @@ function Artistas() {
               <option key={p} value={p}>{p}</option>
             ))}
           </select>
- 
+
           <button
             className={maisSeguidos ? `${style.pillOrdenar} ${style.pillAtiva}` : style.pillOrdenar}
             onClick={() => comReinicio(setMaisSeguidos)((v) => !v)}
@@ -142,7 +143,7 @@ function Artistas() {
             Mais seguidos
           </button>
         </div>
- 
+
         {artistasVisiveis.length > 0 ? (
           <div className={style.grid}>
             {artistasVisiveis.map((a) => (
@@ -159,7 +160,7 @@ function Artistas() {
         ) : (
           <p className={style.vazio}>Nenhum artista encontrado com estes filtros.</p>
         )}
- 
+
         {temMais && (
           <button
             className={style.carregarMais}
@@ -169,10 +170,10 @@ function Artistas() {
           </button>
         )}
       </main>
- 
+
       <Footer />
     </div>
   );
 }
- 
+
 export default Artistas;
