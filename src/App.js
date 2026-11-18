@@ -11,6 +11,7 @@ import Login from './components/login/Login'
 import Artistas from './pages/Artistas/Artistas'
 import PerfilGaleria from "./pages/Galerias/PerfilGaleria/PerfilGaleria";
 import Mensagens from "./pages/Mensagens/Mensagens";
+import Obra from "./pages/Obra/Obra";
 import PerfilArtistas from "./pages/PerfilArtistas/PerfilArtistas";
 import Feed from './pages/Feed/Feed'
  
@@ -32,6 +33,7 @@ function App() {
           <Route path="/mensagens" element={<Mensagens />} />
           <Route path="/artista/:id" element={<PerfilArtistas />} />
           <Route path="/galeria/:id" element={<PerfilGaleria />} />
+          <Route path="/obra/:id" element={<Obra />} />
           <Route path="/Cadastro" element={<Cadastro />} />
           <Route path="/Login" element={<Login />} />
         </Routes>
