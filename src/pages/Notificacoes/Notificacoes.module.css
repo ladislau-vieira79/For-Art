@@ -1,0 +1,53 @@
+.pagina { background:#f5f5f5; padding:24px 16px 56px; box-sizing:border-box; min-height:60vh; }
+.caixa { max-width:760px; margin:0 auto; background:#fff; border-radius:16px; padding:24px; box-shadow:0 4px 20px rgba(2,11,36,.06); box-sizing:border-box; }
+
+.topo { display:flex; justify-content:space-between; align-items:flex-start; gap:12px; flex-wrap:wrap; }
+.topo h1 { margin:0 0 4px; font-size:1.6rem; color:#171717; }
+.topo p { margin:0; color:#666; font-size:.9rem; }
+.btnTodas { display:inline-flex; align-items:center; gap:8px; padding:9px 16px; border:1px solid #155eef; border-radius:999px; background:#fff; color:#155eef; font-weight:600; font-size:.85rem; font-family:inherit; cursor:pointer; }
+.btnTodas:hover:not(:disabled) { background:#155eef; color:#fff; }
+.btnTodas:disabled { border-color:#ddd; color:#aaa; cursor:default; }
+
+.filtros { display:flex; gap:8px; margin:20px 0 6px; }
+.filtro { display:inline-flex; align-items:center; gap:8px; padding:8px 16px; border:none; border-radius:999px; background:#f0f2f7; color:#555; font-weight:600; font-size:.88rem; font-family:inherit; cursor:pointer; }
+.filtroAtivo { background:#155eef; color:#fff; }
+.contador { min-width:20px; height:20px; padding:0 6px; box-sizing:border-box; border-radius:999px; background:#ffb800; color:#171717; font-size:.72rem; display:flex; align-items:center; justify-content:center; }
+
+.grupo h2 { margin:22px 0 8px; font-size:.78rem; text-transform:uppercase; letter-spacing:.06em; color:#888; }
+.grupo ul { list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:6px; }
+
+.item { position:relative; border-radius:12px; border:1px solid #f0f0f0; }
+.nova { background:#f4f8ff; border-color:#d9e5ff; }
+.link { display:flex; align-items:center; gap:14px; padding:14px 44px 14px 14px; text-decoration:none; color:inherit; border-radius:12px; }
+.link:hover { background:rgba(21,94,239,.05); }
+
+.icone { flex:0 0 auto; width:42px; height:42px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:1rem; }
+.azul { background:#eaf0ff; color:#155eef; }
+.amarelo { background:#fff1cc; color:#b87500; }
+.laranja { background:#ffe6d1; color:#ff6b00; }
+.verde { background:#dcf7e3; color:#167a35; }
+.vermelho { background:#ffe3e3; color:#e53935; }
+.cinza { background:#eee; color:#666; }
+
+.corpo { flex:1; min-width:0; display:flex; flex-direction:column; gap:3px; }
+.texto { font-size:.92rem; line-height:1.4; color:#171717; overflow-wrap:anywhere; }
+.nova .texto { font-weight:600; }
+.hora { font-size:.76rem; color:#888; }
+.ponto { flex:0 0 auto; width:10px; height:10px; border-radius:50%; background:#155eef; }
+
+.btnRemover { position:absolute; top:50%; right:10px; transform:translateY(-50%); width:28px; height:28px; border:none; border-radius:50%; background:transparent; color:#aaa; font-size:.75rem; cursor:pointer; display:flex; align-items:center; justify-content:center; }
+.btnRemover:hover { background:#eee; color:#333; }
+.nova .ponto { margin-right:8px; }
+
+.vazio { text-align:center; padding:56px 0 40px; color:#999; }
+.vazio svg { font-size:2.6rem; margin-bottom:10px; }
+.vazio p { margin:0; }
+
+@media (max-width:640px) {
+  .pagina { padding:0 0 40px; }
+  .caixa { border-radius:0; padding:16px 12px; box-shadow:none; }
+  .topo h1 { font-size:1.4rem; }
+  .btnTodas { width:100%; justify-content:center; }
+  .link { padding:12px 40px 12px 10px; gap:10px; }
+  .icone { width:38px; height:38px; }
+}
