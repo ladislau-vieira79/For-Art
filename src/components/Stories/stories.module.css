@@ -1,0 +1,20 @@
+.barra { display:flex; gap:14px; overflow-x:auto; padding:14px 16px; margin-bottom:16px; background:#fff; border-radius:16px; box-shadow:0 4px 20px rgba(2,11,36,.05); box-sizing:border-box; scrollbar-width:none; }
+.barra::-webkit-scrollbar { display:none; }
+
+.item { flex:0 0 auto; width:72px; display:flex; flex-direction:column; align-items:center; gap:6px; padding:0; border:none; background:none; cursor:pointer; font-family:inherit; }
+
+.anel, .anelNovo { position:relative; width:68px; height:68px; border-radius:50%; padding:3px; box-sizing:border-box; display:flex; }
+.anel { background:conic-gradient(#155eef, #ffb800, #ff6b00, #155eef); }
+.visto { background:#d0d4dc; }
+.anelNovo { background:#e9edf5; }
+
+.avatar { width:100%; height:100%; border-radius:50%; border:3px solid #fff; box-sizing:border-box; background:linear-gradient(135deg,#155eef,#0b3b91); color:#fff; font-weight:700; font-size:.95rem; display:flex; align-items:center; justify-content:center; overflow:hidden; }
+.avatar img { width:100%; height:100%; object-fit:cover; }
+
+.mais { position:absolute; right:-2px; bottom:-2px; width:22px; height:22px; border-radius:50%; background:#155eef; color:#fff; border:2px solid #fff; display:flex; align-items:center; justify-content:center; font-size:.6rem; }
+
+.nome { width:100%; text-align:center; font-size:.76rem; color:#333; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+
+@media (max-width:640px) {
+  .barra { border-radius:0; margin-bottom:10px; padding:12px; gap:12px; }
+}

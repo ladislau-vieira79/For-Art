@@ -15,6 +15,7 @@ import PostCard from "./PostCard/PostCard";
 import Logo from "../../components/img/Logo.png";
 import { mockPosts, mockTopSemana, mockSugestoes } from "./Mockfeed";
 import style from "./Feed.module.css";
+import Stories from "../../components/Stories/stories";
 
 const NAV_ITEMS = [
   { label: "Feed", to: "/feed", icon: FaHome },
@@ -95,6 +96,8 @@ function Feed() {
             ))}
           </div>
         </section>
+
+        <Stories />
 
         {mockPosts.map((post) => (
           <PostCard key={post.id} post={post} />
