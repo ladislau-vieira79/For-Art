@@ -1,44 +1,73 @@
-import { useState } from 'react'
-import { FaUser, FaLock } from "react-icons/fa";
-import styles from './Login.module.css'
-import imagem from '../img/Login.png';
+import { useState } from "react";
+import { Link } from "react-router-dom";
+import {
+  FaUser,
+  FaLock,
+  FaEye,
+  FaEyeSlash,
+  FaExclamationCircle,
+  FaCheckCircle,
+} from "react-icons/fa";
+import styles from "./Login.module.css";
+import imagem from "../img/Login.png";
 
 function Login() {
-  const [email, setemail] = useState("")
-  const [password, setpassword] = useState("")
-  const [mensagem, setMensagem] = useState(null);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [lembrar, setLembrar] = useState(false);
+  const [verSenha, setVerSenha] = useState(false);
+  const [aEnviar, setAEnviar] = useState(false);
+  const [mensagem, setMensagem] = useState(null); // { texto, tipo: "erro" | "sucesso" }
+  const [camposComErro, setCamposComErro] = useState({});
 
-  function CadastrarUsuario(e) {
+  async function entrar(e) {
     e.preventDefault();
 
-    if (email === '' || password === '') {
-      setMensagem({ texto: 'Preenche todos os campos!', tipo: 'erro' });
+    const erros = {};
+    if (email.trim() === "") erros.email = true;
+    if (password === "") erros.password = true;
+    setCamposComErro(erros);
+
+    if (erros.email || erros.password) {
+      setMensagem({ texto: "Preenche todos os campos!", tipo: "erro" });
+      document.getElementById(erros.email ? "email" : "password")?.focus();
       return;
     }
 
-    if (email === 'teste@teste.com' && password === '123456') {
-      setMensagem({ texto: 'Login efetuado com sucesso! ✅', tipo: 'sucesso' });
+    setMensagem(null);
+    setAEnviar(true);
+    // TODO (API): troca este atraso e a verificação de teste por um fetch POST ao teu backend
+    await new Promise((r) => setTimeout(r, 900));
+    setAEnviar(false);
+
+    if (email === "teste@teste.com" && password === "123456") {
+      setMensagem({ texto: "Login efetuado com sucesso!", tipo: "sucesso" });
+      // TODO: guardar o token (se "lembrar" estiver ativo, em localStorage) e navegar para o feed
     } else {
-      setMensagem({ texto: 'Email ou palavra-passe incorretos ❌', tipo: 'erro' });
+      setMensagem({ texto: "Email ou palavra-passe incorretos.", tipo: "erro" });
     }
   }
 
+  const classeInput = (campo) =>
+    camposComErro[campo] ? `${styles.inputWrapper} ${styles.inputErro}` : styles.inputWrapper;
+
   return (
     <div className={styles.Container}>
-
+      {/* ===== Lado da imagem ===== */}
       <div className={styles.Cadastro_image_side}>
-        <img src={imagem} alt="Login" />
+        <img src={imagem} alt="" />
 
         <div className={styles.overlayConteudo}>
           <div className={styles.logoWrapper}>
             <span className={styles.logoIcone}>✦</span>
-            <span className={styles.logoTexto}>For<em>Art</em></span>
+            <span className={styles.logoTexto}>
+              For<em>Art</em>
+            </span>
           </div>
 
           <div className={styles.overlayBase}>
-            <h1 className={styles.overlayTitulo}>
-              Bem-vindo de volta
-            </h1>
+            <span className={styles.selo}>Onde a arte encontra o seu público</span>
+            <h2 className={styles.overlayTitulo}>Bem-vindo de volta</h2>
             <p className={styles.overlaySubtitulo}>
               Entra na tua conta e continua a partilhar a tua arte com o mundo.
             </p>
@@ -46,68 +75,113 @@ function Login() {
         </div>
       </div>
 
+      {/* ===== Lado do formulário ===== */}
       <div className={styles.Cadastro_form_side}>
         <div className={styles.Cadastro_form_wrapper}>
+          <div className={styles.logoMobile}>
+            <span className={styles.logoIcone}>✦</span>
+            <span className={styles.logoTextoEscuro}>
+              For<em>Art</em>
+            </span>
+          </div>
+
           <h1 className={styles.titulo}>Entrar</h1>
           <p className={styles.subtituloForm}>Introduz os teus dados para aceder à tua conta</p>
 
-          <form className={styles.Cadastro_form} onSubmit={CadastrarUsuario}>
-
+          <form className={styles.Cadastro_form} onSubmit={entrar} noValidate>
             {mensagem && (
-              <p className={`${styles.mensagem} ${styles[mensagem.tipo]}`}>
+              <p className={`${styles.mensagem} ${styles[mensagem.tipo]}`} role="alert">
+                {mensagem.tipo === "erro" ? (
+                  <FaExclamationCircle aria-hidden="true" />
+                ) : (
+                  <FaCheckCircle aria-hidden="true" />
+                )}
                 {mensagem.texto}
               </p>
             )}
 
             <div className={styles.campo}>
-              <label>Nome ou email</label>
-              <div className={styles.inputWrapper}>
-                <FaUser className={styles.icon} />
+              <label htmlFor="email">Nome ou email</label>
+              <div className={classeInput("email")}>
+                <FaUser className={styles.icon} aria-hidden="true" />
                 <input
-                  type="email"
+                  type="text"
                   id="email"
                   name="email"
-                  placeholder="Email"
-                  onChange={(e) => setemail(e.target.value)}
+                  autoComplete="username"
+                  placeholder="Email ou nome de utilizador"
+                  value={email}
+                  onChange={(e) => {
+                    setEmail(e.target.value);
+                    setCamposComErro((c) => ({ ...c, email: false }));
+                  }}
+                  aria-invalid={!!camposComErro.email}
                 />
               </div>
             </div>
 
             <div className={styles.campo}>
-              <label>Password</label>
-              <div className={styles.inputWrapper}>
-                <FaLock className={styles.icon} />
+              <label htmlFor="password">Password</label>
+              <div className={classeInput("password")}>
+                <FaLock className={styles.icon} aria-hidden="true" />
                 <input
-                  type="password"
+                  type={verSenha ? "text" : "password"}
                   id="password"
                   name="password"
+                  autoComplete="current-password"
                   placeholder="Senha"
-                  onChange={(e) => setpassword(e.target.value)}
+                  value={password}
+                  onChange={(e) => {
+                    setPassword(e.target.value);
+                    setCamposComErro((c) => ({ ...c, password: false }));
+                  }}
+                  aria-invalid={!!camposComErro.password}
                 />
+                <button
+                  type="button"
+                  className={styles.btnOlho}
+                  onClick={() => setVerSenha((v) => !v)}
+                  aria-label={verSenha ? "Esconder senha" : "Mostrar senha"}
+                >
+                  {verSenha ? <FaEyeSlash /> : <FaEye />}
+                </button>
               </div>
             </div>
 
             <div className={styles.Lembrar}>
               <label className={styles.checkboxLabel}>
-                <input type="checkbox" />
+                <input type="checkbox" checked={lembrar} onChange={(e) => setLembrar(e.target.checked)} />
                 Lembrar de mim
               </label>
-              <a className={styles.linkAzul} href="#">Esqueceu a senha?</a>
+              {/* Cria a rota /recuperar-senha quando tiveres essa página */}
+              <Link className={styles.linkAzul} to="/recuperar-senha">
+                Esqueceu a senha?
+              </Link>
             </div>
 
-            <button type="submit" className={styles.btnCadastrar}>Entrar</button>
+            <button type="submit" className={styles.btnCadastrar} disabled={aEnviar}>
+              {aEnviar ? (
+                <>
+                  <span className={styles.spinner} aria-hidden="true" /> A entrar...
+                </>
+              ) : (
+                "Entrar"
+              )}
+            </button>
 
             <div className={styles.cadastrar_link}>
               <p>
-                Não tem uma conta? <a className={styles.linkAzul} href="#">Cadastrar-se</a>
+                Não tem uma conta?{" "}
+                <Link className={styles.linkAzul} to="/cadastro">
+                  Cadastrar-se
+                </Link>
               </p>
             </div>
           </form>
         </div>
       </div>
-
     </div>
-  )
+  );
 }
 
-export default Login
+export default Login;
