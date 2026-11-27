@@ -1,3 +1,10 @@
+/* reset local: não depende do CSS global do projeto */
+.Container,
+.Container *,
+.Container *::before,
+.Container *::after {
+  box-sizing: border-box;
+}
 
 .Container {
   width: 100%;

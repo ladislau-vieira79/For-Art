@@ -15,6 +15,7 @@ import NavBar from "../../components/Layout/NavBar/NavBar";
 import Footer from "../../components/Layout/Footer";
 import { obterObra, obterOutrasObras } from "./MockObra";
 import style from "./Obra.module.css";
+import { formatarNumero } from "../../utils/formatar";
 
 // Rota: <Route path="/obra/:id" element={<Obra />} />
 // O :id vem do card clicado (perfil do artista, perfil da galeria, feed...).
@@ -25,7 +26,7 @@ function getIniciais(nome = "") {
 }
 
 function formatarPreco(precoKz) {
-  return `Kz ${precoKz.toLocaleString("pt-PT")}`;
+  return `Kz ${formatarNumero(precoKz)}`;
 }
 
 function Obra() {

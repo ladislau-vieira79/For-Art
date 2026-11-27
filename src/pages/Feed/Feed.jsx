@@ -11,11 +11,12 @@ import {
   FaFire,
 } from "react-icons/fa";
 import NavMobile from "../../components/Layout/NavMobile/NavMobile";
-import PostCard from "./PostCard/PostCard";
+import PostCard from "../../pages/Feed/PostCard/PostCard";
 import Logo from "../../components/img/Logo.png";
 import { mockPosts, mockTopSemana, mockSugestoes } from "./Mockfeed";
-import style from "./Feed.module.css";
 import Stories from "../../components/Stories/stories";
+import style from "./Feed.module.css";
+import { formatarNumero } from "../../utils/formatar";
 
 const NAV_ITEMS = [
   { label: "Feed", to: "/feed", icon: FaHome },
@@ -80,6 +81,7 @@ function Feed() {
 
       {/* ===== Feed central ===== */}
       <main className={style.feed}>
+        <Stories />
         {/* Top artistas em carrossel — só visível em mobile/tablet */}
         <section className={style.topMobile}>
           <div className={style.topMobileTitulo}>
@@ -96,13 +98,13 @@ function Feed() {
             ))}
           </div>
         </section>
-
-        <Stories />
-
+         
+        
         {mockPosts.map((post) => (
           <PostCard key={post.id} post={post} />
         ))}
       </main>
+     
 
       {/* ===== Coluna direita (só desktop) ===== */}
       <aside className={style.asideDesktop}>
@@ -119,7 +121,7 @@ function Feed() {
               <div className={style.topInfo}>
                 <span className={style.topNome}>{a.nome}</span>
                 <span className={style.topViews}>
-                  {a.visualizacoesSemana.toLocaleString("pt-PT")} visualizações
+                  {formatarNumero(a.visualizacoesSemana)} visualizações
                 </span>
               </div>
             </Link>

@@ -12,6 +12,7 @@ import {
   publicarObra,
 } from "./MockPublicarObra";
 import style from "./PublicarObra.module.css";
+import { formatarNumero } from "../../utils/formatar";
 
 // Rota: <Route path="/publicar" element={<PublicarObra />} />
 // Só artistas devem ver esta página (protege a rota quando tiveres login).
@@ -32,7 +33,7 @@ const VAZIO = {
 
 function formatarPreco(valor) {
   const n = Number(valor);
-  return n > 0 ? `Kz ${n.toLocaleString("pt-PT")}` : "Kz —";
+  return n > 0 ? `Kz ${formatarNumero(n)}` : "Kz —";
 }
 
 function PublicarObra() {

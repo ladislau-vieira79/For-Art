@@ -8,11 +8,13 @@ import {
   FaGlobe,
   FaTag,
   FaCheckCircle,
+  FaCalendarAlt,
 } from "react-icons/fa";
 import NavBar from "../../components/Layout/NavBar/NavBar";
 import Footer from "../../components/Layout/Footer";
 import { obterPerfilArtista } from "./mockperfilartistas";
 import style from "./PerfilArtistas.module.css";
+import { formatarNumero } from "../../utils/formatar";
 
 // Rota: <Route path="/artista/:id" element={<PerfilArtista />} />
 // O :id vem do card clicado na página Artistas. Numa versão ligada à API,
@@ -29,7 +31,7 @@ function getIniciais(nome = "") {
 }
 
 function formatarPreco(precoKz) {
-  return `Kz ${precoKz.toLocaleString("pt-PT")}`;
+  return `Kz ${formatarNumero(precoKz)}`;
 }
 
 function PerfilArtista() {
@@ -122,13 +124,13 @@ function PerfilArtista() {
           </div>
           <div className={style.statItem}>
             <span className={style.statNum}>
-              {artista.stats.seguidores.toLocaleString("pt-PT")}
+              {formatarNumero(artista.stats.seguidores)}
             </span>
             <span className={style.statLbl}>seguidores</span>
           </div>
           <div className={style.statItem}>
             <span className={style.statNum}>
-              {artista.stats.visualizacoesSemana.toLocaleString("pt-PT")}
+              {formatarNumero(artista.stats.visualizacoesSemana)}
             </span>
             <span className={style.statLbl}>visualizações esta semana</span>
           </div>
@@ -182,22 +184,36 @@ function PerfilArtista() {
 
         {tabAtiva === "sobre" && (
           <section className={style.secao}>
-            <div className={style.sobreBloco}>
-              <h2 className={style.secaoTitulo}>Sobre {artista.nome.split(" ")[0]}</h2>
-              <p className={style.bioTexto}>{artista.bio}</p>
+            <div className={style.sobreGrid}>
+              <div className={style.sobreBloco}>
+                <h2 className={style.secaoTitulo}>Sobre {artista.nome.split(" ")[0]}</h2>
+                <p className={style.bioTexto}>{artista.bio}</p>
 
-              <div className={style.redesLista}>
-                {artista.redes.instagram && (
-                  <a href="#" className={style.redeItem}>
-                    <FaInstagram aria-hidden="true" /> {artista.redes.instagram}
-                  </a>
-                )}
-                {artista.redes.site && (
-                  <a href="#" className={style.redeItem}>
-                    <FaGlobe aria-hidden="true" /> {artista.redes.site}
-                  </a>
-                )}
+                <div className={style.redesLista}>
+                  {artista.redes.instagram && (
+                    <a href="#" className={style.redeItem}>
+                      <FaInstagram aria-hidden="true" /> {artista.redes.instagram}
+                    </a>
+                  )}
+                  {artista.redes.site && (
+                    <a href="#" className={style.redeItem}>
+                      <FaGlobe aria-hidden="true" /> {artista.redes.site}
+                    </a>
+                  )}
+                </div>
               </div>
+
+              <aside className={style.lateral}>
+                <h2 className={style.secaoTitulo}>Em resumo</h2>
+                <ul className={style.lateralLista}>
+                  <li><FaMapMarkerAlt aria-hidden="true" /> {artista.localizacao}</li>
+                  <li><FaPalette aria-hidden="true" /> {artista.tecnica}</li>
+                  <li><FaCalendarAlt aria-hidden="true" /> Membro desde {artista.membroDesde}</li>
+                </ul>
+                <Link to="/mensagens" className={style.btnMensagemGrande}>
+                  <FaEnvelope aria-hidden="true" /> Enviar mensagem
+                </Link>
+              </aside>
             </div>
           </section>
         )}

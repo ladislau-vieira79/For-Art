@@ -1,4 +1,12 @@
 
+/* reset local: não depende do CSS global do projeto */
+.secao,
+.secao *,
+.secao *::before,
+.secao *::after {
+  box-sizing: border-box;
+}
+
 .secao {
   background: #f5f5f5;
   padding: 88px 64px;

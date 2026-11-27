@@ -1,3 +1,11 @@
+/* reset local: não depende do CSS global do projeto */
+.pagina,
+.pagina *,
+.pagina *::before,
+.pagina *::after {
+  box-sizing: border-box;
+}
+
 .pagina { background:#f5f5f5; padding:24px 16px 56px; box-sizing:border-box; min-height:60vh; }
 .caixa { max-width:760px; margin:0 auto; background:#fff; border-radius:16px; padding:24px; box-shadow:0 4px 20px rgba(2,11,36,.06); box-sizing:border-box; }
 

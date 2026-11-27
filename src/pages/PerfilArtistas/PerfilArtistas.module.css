@@ -1,3 +1,11 @@
+/* reset local: não depende do CSS global do projeto */
+.pagina,
+.pagina *,
+.pagina *::before,
+.pagina *::after {
+  box-sizing: border-box;
+}
+
 .pagina {
   max-width: 1100px;
   margin: 0 auto;
@@ -516,5 +524,75 @@
     flex-direction: column;
     align-items: flex-start;
     gap: 10px;
+  }
+}
+
+
+/* ----- Sobre: texto + resumo lateral ----- */
+.sobreGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.7fr) minmax(0, 1fr);
+  gap: 20px;
+  align-items: start;
+}
+
+.sobreGrid .sobreBloco {
+  max-width: none;
+}
+
+.lateral {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  padding: 24px;
+}
+
+.lateralLista {
+  list-style: none;
+  margin: 0 0 20px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  font-size: 0.9rem;
+  color: #374151;
+}
+
+.lateralLista li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.lateralLista svg {
+  flex: 0 0 auto;
+  margin-top: 3px;
+  color: #155eef;
+}
+
+.btnMensagemGrande {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: 44px;
+  padding: 0 24px;
+  border-radius: 22px;
+  background: #155eef;
+  color: #ffffff;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: 0 4px 14px rgba(21, 94, 239, 0.3);
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.btnMensagemGrande:hover {
+  transform: translateY(-2px);
+  background: #1c50c9;
+}
+
+@media (max-width: 860px) {
+  .sobreGrid {
+    grid-template-columns: minmax(0, 1fr);
   }
 }

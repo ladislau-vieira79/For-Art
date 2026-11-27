@@ -1,5 +1,14 @@
 
 /* Por padrão (desktop) esta barra não existe */
+/* reset local: não depende do CSS global do projeto */
+.Container,
+.Container *,
+.Container *::before,
+.Container *::after {
+  box-sizing: border-box;
+}
+
+/* Por padrão (desktop) esta barra não existe */
 .Container {
   display: none;
 }
@@ -30,7 +39,7 @@
     height: 40px;
     background: none;
     border: none;
-    color: #155EEF;
+    color: #171717;
     font-size: 20px;
     cursor: pointer;
   }
@@ -59,12 +68,16 @@
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    color: #155EEF;
+    background: #f5f5f5;
+    color: #171717;
     font-size: 18px;
     transition: background 0.15s ease, color 0.15s ease;
   }
 
- 
+  .button_navbar:hover {
+    background: #155eef;
+    color: #ffffff;
+  }
 
   /* ---- Dropdown de links (abre por baixo da barra) ---- */
   .Navbar_links {
@@ -103,7 +116,7 @@
     border-radius: 8px;
     font-size: 14px;
     font-weight: 600;
-    color: #155EEF;
+    color: #171717;
     text-decoration: none;
     transition: background 0.15s ease, color 0.15s ease;
   }

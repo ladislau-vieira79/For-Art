@@ -1,4 +1,12 @@
 
+/* reset local: não depende do CSS global do projeto */
+.Container,
+.Container *,
+.Container *::before,
+.Container *::after {
+  box-sizing: border-box;
+}
+
 .Container {
   display: grid;
   grid-template-columns: auto 1fr auto;
@@ -139,7 +147,6 @@
     display: block;
     grid-area: burger;
     justify-self: start;
-    color: #155eef;
   }
 
   .loginLabel {

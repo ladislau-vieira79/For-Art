@@ -10,12 +10,12 @@ import {
 } from "react-icons/fa";
 import { MOEDAS, converterPreco } from "./TaxaCambio";
 import style from "./PostCard.module.css";
-
+import { formatarNumero } from "../../../utils/formatar";
 
 function getIniciais(nome = "") {
   return nome.trim().split(" ").filter(Boolean).slice(0, 2).map((p) => p[0].toUpperCase()).join("");
 }
- 
+
 function PostCard({ post }) {
   const [curtido, setCurtido] = useState(post.curtidoInicial);
   const [likes, setLikes] = useState(post.likes);
@@ -23,24 +23,24 @@ function PostCard({ post }) {
   const [precoAberto, setPrecoAberto] = useState(false);
   const [pedidoEnviado, setPedidoEnviado] = useState(false);
   const precoRef = useRef(null);
- 
+
   function alternarCurtir() {
     setCurtido((c) => {
       setLikes((n) => (c ? n - 1 : n + 1));
       return !c;
     });
   }
- 
+
   function partilhar() {
     // aqui entraria a lógica real de partilha (abrir modal, copiar link, etc.)
     setPartilhas((n) => n + 1);
   }
- 
+
   function solicitarCompra() {
     // aqui entraria a lógica real de pedido de compra (formulário, contacto com o artista, etc.)
     setPedidoEnviado(true);
   }
- 
+
   // fecha o painel de conversão ao clicar fora dele
   useEffect(() => {
     function aoClicarFora(e) {
@@ -51,9 +51,9 @@ function PostCard({ post }) {
     document.addEventListener("mousedown", aoClicarFora);
     return () => document.removeEventListener("mousedown", aoClicarFora);
   }, []);
- 
+
   const moedaKz = MOEDAS[0];
- 
+
   return (
     <article className={style.post}>
       <header className={style.cabecalho}>
@@ -72,11 +72,11 @@ function PostCard({ post }) {
           <FaEllipsisH />
         </button>
       </header>
- 
+
       <div className={style.imagemWrapper}>
         <img src={post.imagem} alt={post.legenda} loading="lazy" />
       </div>
- 
+
       <div className={style.acoes}>
         <button
           className={curtido ? `${style.acaoBtn} ${style.curtido}` : style.acaoBtn}
@@ -84,19 +84,19 @@ function PostCard({ post }) {
           aria-label={curtido ? "Descurtir" : "Curtir"}
         >
           {curtido ? <FaHeart /> : <FaRegHeart />}
-          <span className={style.contagem}>{likes.toLocaleString("pt-PT")}</span>
+          <span className={style.contagem}>{formatarNumero(likes)}</span>
         </button>
- 
+
         <button className={style.acaoBtn} aria-label="Comentar">
           <FaRegComment />
-          <span className={style.contagem}>{post.comentarios.toLocaleString("pt-PT")}</span>
+          <span className={style.contagem}>{formatarNumero(post.comentarios)}</span>
         </button>
- 
+
         <button className={style.acaoBtn} onClick={partilhar} aria-label="Partilhar">
           <FaRegPaperPlane />
-          <span className={style.contagem}>{partilhas.toLocaleString("pt-PT")}</span>
+          <span className={style.contagem}>{formatarNumero(partilhas)}</span>
         </button>
- 
+
         {post.precoKz != null && (
           <div className={style.precoWrapper} ref={precoRef}>
             <button
@@ -107,7 +107,7 @@ function PostCard({ post }) {
               <FaTag className={style.precoIcone} aria-hidden="true" />
               {converterPreco(post.precoKz, moedaKz)}
             </button>
- 
+
             {precoAberto && (
               <div className={style.precoPainel} role="dialog">
                 <p className={style.precoPainelTitulo}>Preço da obra</p>
@@ -127,7 +127,7 @@ function PostCard({ post }) {
                 <p className={style.precoAviso}>
                   Valores de conversão aproximados, apenas para referência.
                 </p>
- 
+
                 <button
                   className={style.precoSolicitarBtn}
                   onClick={solicitarCompra}
@@ -140,10 +140,10 @@ function PostCard({ post }) {
           </div>
         )}
       </div>
- 
+
       <div className={style.conteudo}>
         <p className={style.campo}>
-          <span className={style.campoLabel}>Titulo:</span> {post.Titulo}
+          <span className={style.campoLabel}>Artista:</span> {post.autor}
         </p>
         <p className={style.campo}>
           <span className={style.campoLabel}>Sinopse:</span> {post.legenda}
@@ -152,5 +152,5 @@ function PostCard({ post }) {
     </article>
   );
 }
- 
+
 export default PostCard;

@@ -35,7 +35,8 @@ function Card({
         <div className={style.rodape}>
           {Preco && <span className={style.preco}>{Preco}</span>}
           <span className={style.BtnCard}>
-            Ver obra <FaArrowRight aria-hidden="true" />
+            <span className={style.btnTexto}>Ver obra</span>
+            <FaArrowRight aria-hidden="true" />
           </span>
         </div>
       </div>

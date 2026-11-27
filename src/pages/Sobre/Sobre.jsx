@@ -94,12 +94,12 @@ function Sobre() {
           </div>
           <div className={style.team_grid}>
             <div className={style.member}>
-              <div className={style.avatar}></div>
+              <div className={style.avatar} aria-hidden="true">LV</div>
               <h4>Ladislau Vieira</h4>
               <span>Fundador(a)</span>
             </div>
             <div className={style.member}>
-              <div className={style.avatar}></div>
+              <div className={style.avatar} aria-hidden="true">LV</div>
               <h4>Ladislau Vieira</h4>
               <span>Design</span>
             </div>

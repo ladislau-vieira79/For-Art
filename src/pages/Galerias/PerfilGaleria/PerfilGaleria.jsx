@@ -15,6 +15,7 @@ import Footer from "../../../components/Layout/Footer";
 import CardArtista from "../../../components/common/CardArtistas/CardArtista";
 import { obterPerfilGaleria } from "./MockPerfilGaleria";
 import style from "./PerfilGaleria.module.css";
+import { formatarNumero } from "../../../utils/formatar";
 
 // Rota: <Route path="/galeria/:id" element={<PerfilGaleria />} />
 // O :id vem do card clicado na página Galerias. Numa versão ligada à API,
@@ -33,7 +34,7 @@ function getIniciais(nome = "") {
 }
 
 function formatarPreco(precoKz) {
-  return `Kz ${precoKz.toLocaleString("pt-PT")}`;
+  return `Kz ${formatarNumero(precoKz)}`;
 }
 
 function PerfilGaleria() {
@@ -133,7 +134,7 @@ function PerfilGaleria() {
           </div>
           <div className={style.statItem}>
             <span className={style.statNum}>
-              {galeria.stats.seguidores.toLocaleString("pt-PT")}
+              {formatarNumero(galeria.stats.seguidores)}
             </span>
             <span className={style.statLbl}>seguidores</span>
           </div>
@@ -159,14 +160,28 @@ function PerfilGaleria() {
         {/* ===== Conteúdo das tabs ===== */}
         {tabAtiva === "sobre" && (
           <section className={style.secao}>
-            <div className={style.bloco}>
-              <h2 className={style.secaoTitulo}>Sobre a galeria</h2>
-              <p className={style.texto}>{galeria.sobre}</p>
-              <div className={style.tags}>
-                {galeria.areas.map((a) => (
-                  <span key={a} className={style.tag}>{a}</span>
-                ))}
+            <div className={style.sobreGrid}>
+              <div className={style.bloco}>
+                <h2 className={style.secaoTitulo}>Sobre a galeria</h2>
+                <p className={style.texto}>{galeria.sobre}</p>
+                <div className={style.tags}>
+                  {galeria.areas.map((a) => (
+                    <span key={a} className={style.tag}>{a}</span>
+                  ))}
+                </div>
               </div>
+
+              <aside className={style.lateral}>
+                <h2 className={style.secaoTitulo}>Em resumo</h2>
+                <ul className={style.lateralLista}>
+                  <li><FaMapMarkerAlt aria-hidden="true" /> {galeria.localizacao}</li>
+                  <li><FaBuilding aria-hidden="true" /> {galeria.areaInteresse}</li>
+                  <li><FaEnvelope aria-hidden="true" /> {galeria.contacto.email}</li>
+                </ul>
+                <Link to="/mensagens" className={style.btnContactoGrande}>
+                  <FaEnvelope aria-hidden="true" /> Enviar mensagem
+                </Link>
+              </aside>
             </div>
           </section>
         )}

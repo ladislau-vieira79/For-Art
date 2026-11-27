@@ -1,3 +1,11 @@
+/* reset local: não depende do CSS global do projeto */
+.barra,
+.barra *,
+.barra *::before,
+.barra *::after {
+  box-sizing: border-box;
+}
+
 .barra { display:flex; gap:14px; overflow-x:auto; padding:14px 16px; margin-bottom:16px; background:#fff; border-radius:16px; box-shadow:0 4px 20px rgba(2,11,36,.05); box-sizing:border-box; scrollbar-width:none; }
 .barra::-webkit-scrollbar { display:none; }
 

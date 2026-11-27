@@ -1,0 +1,449 @@
+/* reset local: não depende do CSS global do projeto */
+.wrap,
+.wrap *,
+.wrap *::before,
+.wrap *::after,
+.semana,
+.semana *,
+.semana *::before,
+.semana *::after {
+  box-sizing: border-box;
+}
+
+.wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+  width: 100%;
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 32px 24px;
+}
+
+/* ===== cabeçalho de secção ===== */
+.cabecalho {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.etiqueta {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #155eef;
+}
+
+.titulo {
+  margin: 0;
+  font-size: 1.6rem;
+  font-weight: 800;
+  letter-spacing: -0.4px;
+  color: #171717;
+}
+
+.subtitulo {
+  margin: 6px 0 0;
+  font-size: 0.92rem;
+  color: #555;
+  line-height: 1.5;
+  max-width: 560px;
+}
+
+.verTodos {
+  flex: 0 0 auto;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #155eef;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.verTodos:hover {
+  text-decoration: underline;
+}
+
+/* ===== novos talentos ===== */
+.gridNovos {
+  padding-top: 11px;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.cartao {
+  position: relative;
+  min-width: 0;
+}
+
+.fita {
+  position: absolute;
+  top: -11px; /* pousa na borda do card, sem tapar o avatar */
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  white-space: nowrap;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: #ffb800;
+  color: #171717;
+  font-size: 0.7rem;
+  font-weight: 800;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
+  pointer-events: none;
+}
+
+.nota {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 16px;
+  font-size: 0.82rem;
+  color: #666;
+}
+
+.nota svg {
+  color: #155eef;
+  flex: 0 0 auto;
+}
+
+/* ===== artista da semana ===== */
+.semana {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+  gap: 32px;
+  padding: 32px;
+  border-radius: 24px;
+  color: #fff;
+  background:
+    radial-gradient(circle at 100% 0%, rgba(21, 94, 239, 0.45), transparent 55%),
+    linear-gradient(135deg, #020b24, #0b1b4d);
+  box-shadow: 0 12px 40px rgba(2, 11, 36, 0.25);
+}
+
+.semanaTexto {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 14px;
+  min-width: 0;
+}
+
+.selo {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: rgba(255, 184, 0, 0.16);
+  color: #ffb800;
+  font-size: 0.74rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.semanaPeriodo {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.artistaLinha {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.avatarGrande {
+  flex: 0 0 auto;
+  width: 76px;
+  height: 76px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: linear-gradient(135deg, #155eef, #0b3b91);
+  border: 3px solid rgba(255, 255, 255, 0.85);
+  font-size: 1.5rem;
+  font-weight: 800;
+}
+
+.avatarGrande img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.nomeArtista {
+  margin: 0;
+  font-size: 1.6rem;
+  font-weight: 800;
+  letter-spacing: -0.4px;
+  line-height: 1.15;
+}
+
+.metaArtista {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 4px;
+  font-size: 0.86rem;
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.citacao {
+  margin: 0;
+  padding-left: 16px;
+  border-left: 3px solid #ffb800;
+  font-size: 1rem;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.curador {
+  font-size: 0.82rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.curador strong {
+  color: #fff;
+}
+
+.acoes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 4px;
+}
+
+.btnPrimario,
+.btnSecundario {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 44px;
+  padding: 0 22px;
+  border-radius: 999px;
+  font-size: 0.88rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.btnPrimario {
+  background: #155eef;
+  color: #fff;
+  box-shadow: 0 6px 18px rgba(21, 94, 239, 0.4);
+}
+
+.btnSecundario {
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  color: #fff;
+}
+
+.btnPrimario:hover,
+.btnSecundario:hover {
+  transform: translateY(-2px);
+}
+
+.btnSecundario:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.semanaObras {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  align-content: center;
+}
+
+.obraMini {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+  color: #fff;
+  text-decoration: none;
+}
+
+.obraMiniImg {
+  aspect-ratio: 4 / 5;
+  border-radius: 14px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.obraMiniImg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.obraMini:hover .obraMiniImg img {
+  transform: scale(1.05);
+}
+
+.obraMiniNome {
+  font-size: 0.8rem;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ===== coleções ===== */
+.gridColecoes {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.colecao {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-height: 200px;
+  padding: 22px;
+  border-radius: 20px;
+  overflow: hidden;
+  color: #fff;
+  text-decoration: none;
+  background: linear-gradient(135deg, var(--c1), var(--c2));
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.colecao::after {
+  content: "";
+  position: absolute;
+  right: -40px;
+  top: -40px;
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.colecao:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 16px 30px rgba(2, 11, 36, 0.22);
+}
+
+.colecaoContador {
+  position: relative;
+  z-index: 1;
+  margin-bottom: 8px;
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  opacity: 0.85;
+}
+
+.colecaoTitulo {
+  position: relative;
+  z-index: 1;
+  margin: 0 0 6px;
+  font-size: 1.3rem;
+  font-weight: 800;
+  letter-spacing: -0.3px;
+}
+
+.colecaoDesc {
+  position: relative;
+  z-index: 1;
+  margin: 0 0 12px;
+  font-size: 0.86rem;
+  line-height: 1.5;
+  opacity: 0.9;
+}
+
+.colecaoCta {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.84rem;
+  font-weight: 700;
+}
+
+/* ===== tablet ===== */
+@media (max-width: 1024px) {
+  .wrap {
+    padding: 24px 20px;
+    gap: 40px;
+  }
+
+  .gridNovos {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .semana {
+    grid-template-columns: minmax(0, 1fr);
+    padding: 28px;
+  }
+
+  .gridColecoes {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* ===== mobile ===== */
+@media (max-width: 640px) {
+  .wrap {
+    padding: 20px 16px;
+    gap: 36px;
+  }
+
+  .cabecalho {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .titulo {
+    font-size: 1.35rem;
+  }
+
+  .gridNovos {
+    gap: 12px;
+  }
+
+  .semana {
+    padding: 20px;
+    border-radius: 20px;
+    gap: 22px;
+  }
+
+  .nomeArtista {
+    font-size: 1.3rem;
+  }
+
+  .avatarGrande {
+    width: 62px;
+    height: 62px;
+    font-size: 1.2rem;
+  }
+
+  .acoes > * {
+    flex: 1 1 100%;
+  }
+
+  .gridColecoes {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .colecao {
+    min-height: 170px;
+  }
+}

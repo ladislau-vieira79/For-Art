@@ -1,4 +1,12 @@
 
+/* reset local: não depende do CSS global do projeto */
+.pagina,
+.pagina *,
+.pagina *::before,
+.pagina *::after {
+  box-sizing: border-box;
+}
+
 .pagina {
   max-width: 1280px;
   margin: 0 auto;

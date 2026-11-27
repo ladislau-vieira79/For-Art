@@ -1,4 +1,12 @@
 
+/* reset local: não depende do CSS global do projeto */
+.secao,
+.secao *,
+.secao *::before,
+.secao *::after {
+  box-sizing: border-box;
+}
+
 .secao {
   background: #ffffff;
   padding: 88px 64px;
@@ -64,14 +72,14 @@
   font-size: 13.5px;
   color: #555555;
   line-height: 1.6;
-  margin: 6px 0 0;
+  margin: 0;
 
-  /* só mostra a descrição da aba ativa, com uma transição suave de altura */
-  display: grid;
-  grid-template-rows: 0fr;
+  /* só mostra a descrição da aba ativa; as outras ficam realmente
+     colapsadas (sem ocupar espaço), com transição suave */
+  max-height: 0;
   overflow: hidden;
-  transition: grid-template-rows 0.25s ease, opacity 0.2s ease;
   opacity: 0;
+  transition: max-height 0.3s ease, margin 0.3s ease, opacity 0.2s ease;
 }
 
 .abaAtiva {
@@ -83,15 +91,9 @@
 }
 
 .abaAtiva .abaDescricao {
-  grid-template-rows: 1fr;
+  max-height: 140px;
+  margin-top: 6px;
   opacity: 1;
-}
-
-/* truque para o grid-template-rows funcionar com padding/overflow */
-.abaDescricao::before {
-  content: "";
-  display: block;
-  height: 0;
 }
 
 /* ===== VISUAL (direita) ===== */

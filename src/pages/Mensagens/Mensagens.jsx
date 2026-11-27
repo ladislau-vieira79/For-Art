@@ -11,6 +11,7 @@ import {
 import NavBar from "../../components/Layout/NavBar/NavBar";
 import { mockConversas } from "./MockMensagens";
 import style from "./Mensagens.module.css";
+import { formatarNumero } from "../../utils/formatar";
 
 // Rota: <Route path="/mensagens" element={<Mensagens />} />
 // TODO (API): carregar as conversas com fetch e enviar a mensagem com um
@@ -27,7 +28,7 @@ function getIniciais(nome = "") {
 }
 
 function formatarPreco(precoKz) {
-  return `Kz ${precoKz.toLocaleString("pt-PT")}`;
+  return `Kz ${formatarNumero(precoKz)}`;
 }
 
 function ultimaMensagem(conversa) {

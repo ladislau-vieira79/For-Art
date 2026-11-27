@@ -1,3 +1,11 @@
+/* reset local: não depende do CSS global do projeto */
+.fundo,
+.fundo *,
+.fundo *::before,
+.fundo *::after {
+  box-sizing: border-box;
+}
+
 .fundo { position:fixed; inset:0; z-index:1000; background:rgba(2,11,36,.94); display:flex; align-items:center; justify-content:center; }
 .caixa { position:relative; width:min(420px, 100vw); height:min(100vh, 780px); background:#000; border-radius:16px; overflow:hidden; display:flex; flex-direction:column; }
 

@@ -2,10 +2,11 @@ import { useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import { FaSearch, FaFire } from "react-icons/fa";
 import NavBar from "../../components/Layout/NavBar/NavBar";
-import Footer from "../../components/Layout/Footer";
 import CardArtista from "../../components/common/CardArtistas/CardArtista";
 import { ESPECIALIDADES, PAISES, mockArtistas } from "./mockArtistas";
+import Descobrir from "../../components/Descobrir/Descobrir";
 import style from "./Artistas.module.css";
+import { formatarNumero } from "../../utils/formatar";
 
 const POR_PAGINA = 6;
 
@@ -78,6 +79,8 @@ function Artistas() {
           </p>
         </div>
 
+        <Descobrir />
+
         <section className={style.topSemana}>
           <div className={style.topTitulo}>
             <FaFire aria-hidden="true" />
@@ -96,7 +99,7 @@ function Artistas() {
                 </div>
                 <span className={style.topNome}>{a.nome}</span>
                 <span className={style.topViews}>
-                  {a.visualizacoesSemana.toLocaleString("pt-PT")} visualizações
+                  {formatarNumero(a.visualizacoesSemana)} visualizações
                 </span>
               </Link>
             ))}
@@ -171,7 +174,7 @@ function Artistas() {
         )}
       </main>
 
-      <Footer />
+    
     </div>
   );
 }

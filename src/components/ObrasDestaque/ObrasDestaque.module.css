@@ -1,7 +1,16 @@
 
 
 
+/* reset local: não depende do CSS global do projeto */
+.secao,
+.secao *,
+.secao *::before,
+.secao *::after {
+  box-sizing: border-box;
+}
+
 .secao {
+  background: #0a0e2a;
   padding: 64px 0;
   overflow: hidden;
 }
@@ -22,7 +31,7 @@
 }
 
 .cabecalho h2 {
-  color: #020B24;
+  color: #ffffff;
   font-size: 28px;
   font-weight: 700;
   margin: 0;
@@ -112,12 +121,12 @@
   font-size: 16px;
   font-weight: 800;
   margin: 0 0 6px;
-  color: #020B24;
+  color: #ffffff;
 }
 
 .info p {
   font-size: 13px;
-  color: #ffb800;
+  color: #b8b8b8;
   line-height: 1.4;
   margin: 0;
 }

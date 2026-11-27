@@ -1,4 +1,12 @@
 
+/* reset local: não depende do CSS global do projeto */
+.Container,
+.Container *,
+.Container *::before,
+.Container *::after {
+  box-sizing: border-box;
+}
+
 .Container {
   width: 100%;
   padding: 24px 16px;
@@ -144,5 +152,39 @@
   .btnSeguir {
     padding: 8px 20px;
     font-size: 12.5px;
+  }
+}
+
+/* ==========================
+   MOBILE PEQUENO (≤ 420px)
+   com 2 colunas, o card fica bem mais estreito —
+   este ajuste extra garante que o conteúdo continua legível
+   ========================== */
+@media (max-width: 420px) {
+  .Container {
+    padding: 14px 8px;
+  }
+  .imagem {
+    width: 52px;
+    height: 52px;
+    margin-bottom: 8px;
+  }
+  .iniciais {
+    font-size: 15px;
+  }
+  .Nome {
+    font-size: 12.5px;
+  }
+  .tecnica {
+    font-size: 10.5px;
+    margin-bottom: 10px;
+    gap: 2px;
+  }
+  .pin {
+    font-size: 9px;
+  }
+  .btnSeguir {
+    padding: 7px 14px;
+    font-size: 11px;
   }
 }
